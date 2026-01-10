@@ -1,0 +1,39 @@
+.Different {
+  // padding: clamp(0px, 4vw, 80px);
+  padding: clamp(20px, 4vw, 80px) 20px;
+  margin: 0 auto;
+  max-width: 1280px;
+  h2 {
+    text-align: center;
+    font-size: var(--fs-lg-m);
+    padding-bottom: clamp(20px, 2vw, 36px);
+  }
+  .Different__content {
+    display: flex;
+    // justify-content: space-between;
+    gap: 20px;
+    @media (max-width: 800px) {
+      flex-wrap: wrap;
+    }
+    .Different__contentItem {
+      padding: clamp(20px, 3vw, 48px);
+      flex: 1 1 auto;
+      // min-height: 244px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: var(--color-text-white-two);
+      @media (max-width: 800px) {
+        width: 40%;
+      }
+      @media (max-width: 500px) {
+        width: 100%;
+      }
+      .ContentItem__iconWrapper {
+      }
+      .ContentItem__text {
+        font-family: var(--font-satoshi);
+      }
+    }
+  }
+}

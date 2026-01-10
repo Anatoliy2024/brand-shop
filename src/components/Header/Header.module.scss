@@ -1,2 +1,48 @@
-.wrapper {
+.Header {
+  .Header__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 28px;
+    align-items: center;
+    font-size: var(--fs-lg-m);
+    color: var(--color-text-black-two);
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    .Header__iconWrapper {
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      &:hover {
+        // transform: scale(1.3);
+        background: var(--color-text-grey);
+        color: white;
+      }
+    }
+    .Header__logo {
+    }
+    .Header__userInfo {
+      display: flex;
+      gap: 16px;
+    }
+  }
+
+  .Header__separator {
+    width: 95%; /* ширина линии */
+    margin: 0 auto; /* автоматически добавляет одинаковые отступы слева и справа */
+    border: none; /* убираем стандартную рамку */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* создаём линию */
+  }
+  .Header__categories {
+    max-width: 675px;
+    margin: 0 auto;
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-family: var(--font-satoshi), sans-serif;
+    color: var(--color-text-grey);
+    .Header__categoryItem {
+      cursor: pointer;
+    }
+  }
 }
