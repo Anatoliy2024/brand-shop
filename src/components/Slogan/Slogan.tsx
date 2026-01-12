@@ -4,6 +4,7 @@ import { ShoppingCardIcon } from "@/assets/svg/ShoppingCardIcon"
 import { UserAvatarIcon } from "@/assets/svg/UserAvatarIcon"
 import { categories } from "@/data/categories"
 import Image from "next/image"
+import { SloganContentText } from "../SloganContentText/SloganContentText"
 
 export function Slogan() {
   // return <div>Header</div>
@@ -17,12 +18,18 @@ export function Slogan() {
           alt="interior"
         />
       </div>
+
       <div className={style.Slogan__contentWrapper}>
-        <div className={style.Slogan__content}>
+        <SloganContentText
+          title="Luxury homeware for people who love timeless design quality"
+          text="Shop the new Spring 2022 collection today"
+          type="Slogan"
+        />
+        {/* <div className={style.Slogan__content}>
           <h2>Luxury homeware for people who love timeless design quality</h2>
           <div>Shop the new Spring 2022 collection today</div>
           <button>View collection</button>
-        </div>
+        </div> */}
       </div>
     </div>
 

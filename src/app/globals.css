@@ -17,9 +17,15 @@
   --background-purple: #2a254b;
   --background-grey: #f9f9f9;
 
-  --fs-sm: 0.875rem; /* 14px */
-  --fs-md: 1.12rem; /* 18px */
-  --fs-lg: 1.25rem; /* 20px */
+  --fs-lg: clamp(0.75rem, 1vw, 0.875rem); /* 14px */
+
+  /*--fs-sm: 0.875rem;*/ /* 14px */
+  --fs-lg: clamp(0.875rem, 1vw, 1.12rem); /* 18px */
+
+  /*--fs-md: 1.12rem;*/ /* 18px */
+
+  --fs-lg: clamp(1.12rem, 1vw, 1.25rem); /* 20px */
+  /*--fs-lg: 1.25rem;*/ /* 20px */
   --fs-lg-m: clamp(1.3rem, 2vw, 1.5rem); /* 24px */
   /* --fs-lg-m: 1.5rem; */ /* 24px */
   --fs-xl: clamp(1.6rem, 2vw, 2rem); /* 32px */
@@ -29,7 +35,7 @@
   --color-text-black-two: #22202e;
   --color-text-grey: #726e8d;
   --color-text-grey-two: #5b5676;
-  --color-text-grey-three: #2a254b;
+  /* --color-text-grey-three: #2a254b; */
   --color-text-white: #ffffff;
   --color-text-white-two: rgba(249, 249, 249, 1);
 }
@@ -38,7 +44,9 @@ body {
   color: var(--color-text-black);
   font-family: var(--font-clashDisplay), sans-serif;
 }
-
+button {
+  cursor: pointer;
+}
 .innerAppContainer {
   max-width: 1440px;
   margin: 0 auto;
