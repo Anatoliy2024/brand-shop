@@ -18,18 +18,18 @@ export function Footer() {
     PinterestIcon,
   ]
   const menuList = [
-    "New arrivals",
-    "Best sellers",
-    "Recently viewed",
-    "Popular this week",
-    "All products",
+    { text: "New arrivals", link: "#" },
+    { text: "Best sellers", link: "#" },
+    { text: "Recently viewed", link: "#" },
+    { text: "Popular this week", link: "#" },
+    { text: "All products", link: "#" },
   ]
   const ourCompanyList = [
-    "About us",
-    "Vacancies",
-    "Contact us",
-    "Privacy",
-    "Returns policy",
+    { text: "About us", link: "#" },
+    { text: "Vacancies", link: "#" },
+    { text: "Contact us", link: "#" },
+    { text: "Privacy", link: "#" },
+    { text: "Returns policy", link: "#" },
   ]
   return (
     <div className={style.Footer}>
@@ -39,24 +39,28 @@ export function Footer() {
           <ListItem title="Categories" arrayItem={categories} />
           <ListItem title="Our company" arrayItem={ourCompanyList} />
         </div>
-        <div className={style.Footer__inputWrapper}>
-          <input type="text" />
-          <button>Sign up</button>
+        <div className={style.Footer__invitationBlock}>
+          <h3>Join our mailing list</h3>
+          <div className={style.invitationBlock__content}>
+            <div className={style.invitationBlock__inputWrapper}>
+              <input type="text" placeholder="your@email.com" />
+            </div>
+            <button>Sign up</button>
+          </div>
         </div>
       </div>
       <hr className={style.Footer__separator} />
       <div className={style.Footer__bottom}>
         <div className={style.bottom_copyright}>Copyright 2022 Avion LTD</div>
-        <div>
-          <div className={style.bottom_socialMedia}>
-            {ListSocialMedia.map((Icon, index) => (
-              <li key={index}>
-                <Link href="#">
-                  <Icon />
-                </Link>
-              </li>
-            ))}
-          </div>
+
+        <div className={style.bottom_socialMedia}>
+          {ListSocialMedia.map((Icon, index) => (
+            <li key={index}>
+              <Link href="#">
+                <Icon />
+              </Link>
+            </li>
+          ))}
         </div>
       </div>
     </div>
@@ -68,16 +72,18 @@ function ListItem({
   arrayItem,
 }: {
   title: string
-  arrayItem: string[]
+  arrayItem: Record<string, string>[]
 }) {
   return (
     <div className={style.Footer_ListItem}>
       <h3>{title}</h3>
-      {arrayItem.map((item, index) => (
-        <li key={index}>
-          <Link href={"#"}>{item}</Link>
-        </li>
-      ))}
+      <div>
+        {arrayItem.map((item, index) => (
+          <li key={index}>
+            <Link href={item.link}>{item.text}</Link>
+          </li>
+        ))}
+      </div>
     </div>
   )
 }

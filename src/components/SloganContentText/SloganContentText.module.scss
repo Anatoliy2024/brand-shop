@@ -47,11 +47,21 @@
   @media (max-width: 800px) {
     padding: 24px 30px;
 
-    width: 400px;
+    max-width: 400px;
     height: 300px;
 
     // width: 100%;
     // margin-left: 0;
+  }
+  @media (max-width: 500px) {
+    max-width: 100%;
+    margin-left: 0;
+
+    // margin-left: 0;
+    // margin: 0 auto;
+
+    // width: 100%;
+    // min-width: 100%;
   }
 }
 .SloganTwo {
@@ -70,6 +80,6 @@
     color: white;
   }
   button {
-    background: rgba(0, 0, 0, 0.15);
+    background: var(--color-background-blink);
   }
 }

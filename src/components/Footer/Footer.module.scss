@@ -1,15 +1,116 @@
 .Footer {
   background: var(--color-text-black);
   color: var(--color-text-white);
+  padding: clamp(20px, 4vw, 58px) clamp(20px, 5vw, 83px) 25px;
+  // margin: 0 auto;
+  // max-width: 1274px;
+  li {
+    list-style: none;
+  }
   .Footer_top {
-    .Footer_listItem {
-      list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: clamp(20px, 3vw, 48px);
+    gap: 20px;
+    @media (max-width: 700px) {
+      flex-wrap: wrap;
+    }
+    .Footer__linksMenu {
+      flex: 0 1 auto;
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      // gap: 100px;
+      @media (max-width: 500px) {
+        justify-content: left;
+        gap: 20px 100px;
+      }
+      .Footer_ListItem {
+        h3 {
+          padding-bottom: 12px;
+        }
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          font-family: var(--font-satoshi), sans-serif;
+          li {
+          }
+        }
+      }
+    }
+    .Footer__invitationBlock {
+      flex: 1 0 auto;
+      max-width: 50%;
+      // display: flex;
+      // align-items: flex-start;
+      @media (max-width: 800px) {
+        // flex-wrap: wrap;
+        max-width: 100%;
+      }
+      h3 {
+        padding-bottom: 12px;
+      }
+      .invitationBlock__content {
+        display: flex;
+
+        .invitationBlock__inputWrapper {
+          flex: 1 1 auto;
+          width: 100%;
+
+          padding: 17px 32px;
+          // background: rgba(255, 255, 255, 0.15);
+          background: var(--color-background-blink);
+          input {
+            width: 100%;
+          }
+          input::placeholder {
+            color: var(--color-text-white); // любой цвет
+          }
+        }
+        button {
+          padding: 17px 32px;
+          // min-width: 118px;
+          background: var(--color-text-white);
+          color: var(--color-text-black);
+          white-space: nowrap;
+        }
+      }
+
+      // input {
+      //   flex: 1 1 auto;
+      // }
+      // button {
+      //   padding: 16px 32px;
+      // }
+
+      // display: flex;
     }
   }
   .Footer__separator {
-    width: 95%; /* ширина линии */
-    margin: 0 auto; /* автоматически добавляет одинаковые отступы слева и справа */
-    border: none; /* убираем стандартную рамку */
-    border-top: 1px solid #4e4d93; /* создаём линию */
+    // width: 100%;
+    // margin: 0 auto;
+    border: none;
+    border-top: 1px solid #4e4d93;
+  }
+  .Footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    gap: 20px;
+    @media (max-width: 550px) {
+      // flex-wrap: wrap;
+      flex-direction: column-reverse;
+    }
+    .bottom_copyright {
+    }
+    .bottom_socialMedia {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
   }
 }

@@ -17,10 +17,10 @@
   --background-purple: #2a254b;
   --background-grey: #f9f9f9;
 
-  --fs-lg: clamp(0.75rem, 1vw, 0.875rem); /* 14px */
+  --fs-sm: clamp(0.75rem, 1vw, 0.875rem); /* 14px */
 
   /*--fs-sm: 0.875rem;*/ /* 14px */
-  --fs-lg: clamp(0.875rem, 1vw, 1.12rem); /* 18px */
+  --fs-md: clamp(0.875rem, 1vw, 1.12rem); /* 18px */
 
   /*--fs-md: 1.12rem;*/ /* 18px */
 
@@ -38,6 +38,8 @@
   /* --color-text-grey-three: #2a254b; */
   --color-text-white: #ffffff;
   --color-text-white-two: rgba(249, 249, 249, 1);
+
+  --color-background-blink: rgba(255, 255, 255, 0.15);
 }
 
 body {

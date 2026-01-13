@@ -27,11 +27,14 @@
     .Invitation__pros {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      padding-bottom: 40px;
+      gap: 20px;
+      // text-align: center;
       .pros__item {
         display: flex;
         gap: 8px;
         align-items: center;
-        padding-bottom: 40px;
         .pros__icon {
         }
         .pros__text {
@@ -46,6 +49,9 @@
         padding: 17px 32px;
         background: white;
         color: var(--color-text-black);
+        input::placeholder {
+          color: var(--color-text-black); // любой цвет
+        }
         // @media (max-width: 500px) {
         //   padding: 10px;
         // }

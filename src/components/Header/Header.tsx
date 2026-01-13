@@ -1,35 +1,104 @@
+"use client"
 import { SearchIcon } from "@/assets/svg/SearchIcon"
 import style from "./Header.module.scss"
 import { ShoppingCardIcon } from "@/assets/svg/ShoppingCardIcon"
 import { UserAvatarIcon } from "@/assets/svg/UserAvatarIcon"
 import { categories } from "@/data/categories"
+import { useEffect, useState } from "react"
+import Link from "next/link"
 
 export function Header() {
-  // return <div>Header</div>
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [showButton, setShowButton] = useState(false)
+
+  const handleShowToggleMenu = () => {
+    setMenuOpen((prev) => !prev)
+  }
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 550px)")
+
+    const updateMedia = () => {
+      setMenuOpen(mediaQuery.matches)
+      setShowButton(!mediaQuery.matches)
+    }
+
+    // const onScroll = () => {
+    //   setScrolled(window.scrollY > 0)
+    // }
+
+    // начальное состояние (УЖЕ НА КЛИЕНТЕ)
+    updateMedia()
+    // onScroll()
+
+    mediaQuery.addEventListener("change", updateMedia)
+    // window.addEventListener("scroll", onScroll, { passive: true })
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateMedia)
+      // window.removeEventListener("scroll", onScroll)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (menuOpen && showButton) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [menuOpen, showButton])
+
   return (
     <div className={style.Header}>
       <div className={style.Header__top}>
-        <div className={style.Header__iconWrapper}>
-          <SearchIcon />
+        <div className={style.Header__searchBlock}>
+          <div className={style.searchBlock__iconWrapper}>
+            <SearchIcon />
+          </div>
+          {showButton && (
+            <div
+              onClick={handleShowToggleMenu}
+              className={`${style.hamburger} ${
+                menuOpen ? style.hamburgerOpen : ""
+              }`}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          )}
         </div>
         <div className={style.Header__logo}>Avion</div>
-        <div className={style.Header__userInfo}>
-          <div className={style.Header__iconWrapper}>
-            <ShoppingCardIcon />
+        {!showButton && (
+          <div className={style.Header__userInfo}>
+            <div className={style.Header__iconWrapper}>
+              <ShoppingCardIcon />
+            </div>
+            <div className={style.Header__iconWrapper}>
+              <UserAvatarIcon />
+            </div>
           </div>
-          <div className={style.Header__iconWrapper}>
-            <UserAvatarIcon />
-          </div>
-        </div>
+        )}
       </div>
       <hr className={style.Header__separator} />
-      <ul className={style.Header__categories}>
+      <ul
+        className={`${style.Header__categories} ${
+          !menuOpen ? style.hidden : ""
+        }`}
+      >
         {categories.map((item, index) => (
           <li key={index} className={style.Header__categoryItem}>
-            {item}
+            <Link href={item.link}>{item.text}</Link>
           </li>
         ))}
       </ul>
+      {menuOpen && showButton && (
+        <div className={style.overlay} onClick={() => setMenuOpen(false)} />
+      )}
     </div>
   )
 }
