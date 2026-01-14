@@ -1,0 +1,65 @@
+import Image from "next/image"
+import style from "./Collection.module.scss"
+import Link from "next/link"
+export function Collection() {
+  const CollectionBD = [
+    {
+      title: "The Dandy chair",
+      price: "250",
+      image: "/img/itemCollection-1.png",
+    },
+    {
+      title: "Rustic Vase Set",
+      price: "155",
+      image: "/img/itemCollection-2.png",
+    },
+    {
+      title: "The Silky Vase",
+      price: "125",
+      image: "/img/itemCollection-3.png",
+    },
+    {
+      title: "The Lucy Lamp",
+      price: "399",
+      image: "/img/itemCollection-4.png",
+    },
+  ]
+
+  return (
+    <div className={style.Collection}>
+      <div className={style.Collection__list}>
+        {CollectionBD.map((item, i) => (
+          <ItemCollection
+            key={i}
+            title={item.title}
+            price={item.price}
+            image={item.image}
+          />
+        ))}
+      </div>
+      <button>
+        <Link href="collection">View collection</Link>
+      </button>
+    </div>
+  )
+}
+
+function ItemCollection({
+  title,
+  price,
+  image,
+}: {
+  title: string
+  price: string
+  image: string
+}) {
+  return (
+    <div className={style.ItemCollection}>
+      <div className={style.ItemCollection__imageWrapper}>
+        <Image src={image} width={305} height={375} alt={title} />
+      </div>
+      <h4>{title}</h4>
+      <div className={style.ItemCollection__price}>£{price}</div>
+    </div>
+  )
+}

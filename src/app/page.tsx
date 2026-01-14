@@ -1,3 +1,4 @@
+import { Collection } from "@/components/Collection/Collection"
 import { Different } from "@/components/Different/Different"
 import { Invitation } from "@/components/Invitation/Invitation"
 import { Slogan } from "@/components/Slogan/Slogan"
@@ -9,6 +10,7 @@ export default function Home() {
     <InnerApp>
       <Slogan />
       <Different />
+      <Collection />
       <SloganTwo />
       <Invitation />
     </InnerApp>
