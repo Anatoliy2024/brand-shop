@@ -33,13 +33,23 @@
     font-size: var(--fs-md);
     flex: 1;
   }
-  button {
-    align-self: flex-start;
-    padding: 16px 32px;
-    // background: rgba(0, 0, 0, 0.15);
+  // button {
+  //   align-self: flex-start;
+  //   padding: 16px 32px;
+  //   // background: rgba(0, 0, 0, 0.15);
 
-    background: var(--color-text-white-two);
-  }
+  //   background: var(--color-text-white-two);
+  //   // background-color: transparent;
+  //   transition: background-color 0.3s ease;
+  //   &:hover {
+  //     background: var(--color-text-grey);
+  //     color: var(--color-text-white-two);
+  //   }
+  //   &:active {
+  //     background: var(--color-text-black);
+  //     color: white;
+  //   }
+  // }
 }
 .Slogan {
   margin-left: auto;
@@ -79,7 +89,15 @@
   h2 {
     color: white;
   }
-  button {
-    background: var(--color-background-blink);
-  }
+  // button {
+  //   background: var(--color-background-blink);
+  //   &:hover {
+  //     // background: var(--color-text-grey);
+  //     color: var(--color-text-white);
+  //   }
+  //   &:active {
+  //     background: var(--color-text-grey-two);
+  //     // background: var(--color-text-black-two);
+  //   }
+  // }
 }

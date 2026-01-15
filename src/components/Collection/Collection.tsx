@@ -1,6 +1,7 @@
 import Image from "next/image"
 import style from "./Collection.module.scss"
 import Link from "next/link"
+import { ButtonUi } from "@/ui/button-ui/ButtonUi"
 export function Collection() {
   const CollectionBD = [
     {
@@ -37,9 +38,11 @@ export function Collection() {
           />
         ))}
       </div>
-      <button>
-        <Link href="collection">View collection</Link>
-      </button>
+      <ButtonUi className="Collection" />
+
+      {/* <button>
+        <Link href="catalog">View collection</Link>
+      </button> */}
     </div>
   )
 }
@@ -54,7 +57,7 @@ function ItemCollection({
   image: string
 }) {
   return (
-    <div className={style.ItemCollection}>
+    <div className={`${style.ItemCollection} noSelect`}>
       <div className={style.ItemCollection__imageWrapper}>
         <Image src={image} width={305} height={375} alt={title} />
       </div>

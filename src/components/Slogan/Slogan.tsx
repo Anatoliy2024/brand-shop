@@ -15,7 +15,7 @@ export function Slogan() {
       >
         <SloganContentText
           title="Luxury homeware for people who love timeless design quality"
-          text="Shop the new Spring 2022 collection today"
+          text="Shop the new Spring 2026 collection today"
           type="Slogan"
         />
       </div>

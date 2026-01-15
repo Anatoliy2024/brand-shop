@@ -28,13 +28,14 @@
   /*--fs-lg: 1.25rem;*/ /* 20px */
   --fs-lg-m: clamp(1.3rem, 2vw, 1.5rem); /* 24px */
   /* --fs-lg-m: 1.5rem; */ /* 24px */
-  --fs-xl: clamp(1.6rem, 2vw, 2rem); /* 32px */
+  --fs-xl: clamp(1.5rem, 2vw, 2rem); /* 32px */
   /* --fs-xl: 2rem;  */ /* 32px */
 
   --color-text-black: #2a254b;
   --color-text-black-two: #22202e;
   --color-text-grey: #726e8d;
   --color-text-grey-two: #5b5676;
+  --color-text-grey-three: #3f3f7d;
   /* --color-text-grey-three: #2a254b; */
   --color-text-white: #ffffff;
   --color-text-white-two: rgba(249, 249, 249, 1);
@@ -55,4 +56,19 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+.innerAppContainer__contentPage {
+  flex: 1;
+}
+
+.noSelect,
+img,
+svg,
+button,
+a,
+a * {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
 }

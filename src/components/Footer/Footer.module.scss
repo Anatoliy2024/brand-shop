@@ -1,4 +1,6 @@
 .Footer {
+  // flex: 0 1 auto;
+  // min-height: 380px;
   background: var(--color-text-black);
   color: var(--color-text-white);
   padding: clamp(20px, 4vw, 58px) clamp(20px, 5vw, 83px) 25px;
@@ -33,12 +35,19 @@
         h3 {
           padding-bottom: 12px;
         }
-        div {
+        ul {
           display: flex;
           flex-direction: column;
           gap: 12px;
           font-family: var(--font-satoshi), sans-serif;
           li {
+            &:hover {
+              text-decoration: underline;
+            }
+            &:active {
+              text-decoration: underline;
+              color: var(--color-text-grey);
+            }
           }
         }
       }
@@ -78,6 +87,22 @@
           background: var(--color-text-white);
           color: var(--color-text-black);
           white-space: nowrap;
+
+          transition: background-color 0.3s ease;
+          &:hover {
+            // transform: scale(1.05);
+            background: var(--color-text-grey);
+            color: var(--color-text-white);
+          }
+          &:active {
+            // background: #58528d;
+            background: var(--color-text-grey-three);
+            color: var(--color-text-white);
+
+            // transform: scale(1.1);
+
+            // color: white;
+          }
         }
       }
 
@@ -105,13 +130,34 @@
     @media (max-width: 550px) {
       // flex-wrap: wrap;
       flex-direction: column-reverse;
+      align-items: center;
     }
     .bottom_copyright {
+      font-family: var(--font-satoshi), sans-serif;
     }
     .bottom_socialMedia {
       display: flex;
       flex-wrap: wrap;
-      gap: 24px;
+      gap: 10px;
+      li {
+        cursor: pointer;
+
+        padding: 7px;
+        border-radius: 12px;
+        transition: background-color 0.3s ease;
+        &:hover {
+          background: var(--color-text-grey);
+          color: var(--color-text-black);
+          // text-decoration: underline;
+        }
+        &:active {
+          background: var(--color-text-grey-three);
+
+          // background: var(--color-text-black-two);
+
+          color: var(--color-text-grey);
+        }
+      }
     }
   }
 }

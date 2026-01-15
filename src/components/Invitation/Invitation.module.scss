@@ -63,6 +63,19 @@
 
         padding: 16px 32px;
         background: var(--color-text-black);
+        transition: background-color 0.3s ease;
+        &:hover {
+          // transform: scale(1.05);
+          background: var(--color-text-grey-two);
+          color: var(--color-text-white);
+        }
+        &:active {
+          // transform: scale(1.1);
+
+          background: var(--color-text-grey-three);
+
+          color: white;
+        }
       }
     }
   }

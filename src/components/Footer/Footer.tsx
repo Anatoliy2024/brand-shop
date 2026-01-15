@@ -51,9 +51,9 @@ export function Footer() {
       </div>
       <hr className={style.Footer__separator} />
       <div className={style.Footer__bottom}>
-        <div className={style.bottom_copyright}>Copyright 2022 Avion LTD</div>
+        <div className={style.bottom_copyright}>Copyright 2026 Avion LTD</div>
 
-        <div className={style.bottom_socialMedia}>
+        <ul className={style.bottom_socialMedia}>
           {ListSocialMedia.map((Icon, index) => (
             <li key={index}>
               <Link href="#">
@@ -61,7 +61,7 @@ export function Footer() {
               </Link>
             </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   )
@@ -77,13 +77,13 @@ function ListItem({
   return (
     <div className={style.Footer_ListItem}>
       <h3>{title}</h3>
-      <div>
+      <ul>
         {arrayItem.map((item, index) => (
           <li key={index}>
             <Link href={item.link}>{item.text}</Link>
           </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }

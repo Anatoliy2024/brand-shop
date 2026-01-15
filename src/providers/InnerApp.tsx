@@ -5,7 +5,7 @@ export default function InnerApp({ children }: { children: React.ReactNode }) {
   return (
     <div className="innerAppContainer">
       <Header />
-      <div>{children}</div>
+      <div className="innerAppContainer__contentPage">{children}</div>
       <Footer />
     </div>
   )
