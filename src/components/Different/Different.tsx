@@ -57,11 +57,11 @@ function ContentElem({
 }) {
   return (
     <div className={style.Different__contentItem}>
-      <div className={style.ContentItem__iconWrapper}>
+      <div className={style.Different__iconWrapper}>
         <Icon />
       </div>
       <h3>{title}</h3>
-      <div className={style.ContentItem__text}>{text}</div>
+      <div className={style.Different__text}>{text}</div>
     </div>
   )
 }

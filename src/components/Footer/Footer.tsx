@@ -33,7 +33,7 @@ export function Footer() {
   ]
   return (
     <div className={style.Footer}>
-      <div className={style.Footer_top}>
+      <div className={style.Footer__top}>
         <div className={style.Footer__linksMenu}>
           <ListItem title="Menu" arrayItem={menuList} />
           <ListItem title="Categories" arrayItem={categories} />
@@ -41,8 +41,8 @@ export function Footer() {
         </div>
         <div className={style.Footer__invitationBlock}>
           <h3>Join our mailing list</h3>
-          <div className={style.invitationBlock__content}>
-            <div className={style.invitationBlock__inputWrapper}>
+          <div className={style.Footer__content}>
+            <div className={style.Footer__inputWrapper}>
               <input type="text" placeholder="your@email.com" />
             </div>
             <button>Sign up</button>
@@ -51,9 +51,9 @@ export function Footer() {
       </div>
       <hr className={style.Footer__separator} />
       <div className={style.Footer__bottom}>
-        <div className={style.bottom_copyright}>Copyright 2026 Avion LTD</div>
+        <div className={style.Footer__copyright}>Copyright 2026 Avion LTD</div>
 
-        <ul className={style.bottom_socialMedia}>
+        <ul className={style.Footer__socialMedia}>
           {ListSocialMedia.map((Icon, index) => (
             <li key={index}>
               <Link href="#">
@@ -75,7 +75,7 @@ function ListItem({
   arrayItem: Record<string, string>[]
 }) {
   return (
-    <div className={style.Footer_ListItem}>
+    <div className={style.Footer__ListItem}>
       <h3>{title}</h3>
       <ul>
         {arrayItem.map((item, index) => (

@@ -56,14 +56,14 @@ export function Header() {
     <div className={style.Header}>
       <div className={style.Header__top}>
         <div className={style.Header__searchBlock}>
-          <div className={style.searchBlock__iconWrapper}>
+          <div className={style.Header__iconWrapper}>
             <SearchIcon />
           </div>
           {showButton && (
             <div
               onClick={handleShowToggleMenu}
-              className={`${style.hamburger} ${
-                menuOpen ? style.hamburgerOpen : ""
+              className={`${style.Header__hamburger} ${
+                menuOpen ? style.Header__hamburgerOpen : ""
               }`}
             >
               <span></span>

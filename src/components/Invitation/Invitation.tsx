@@ -25,11 +25,11 @@ export function Invitation() {
 }
 function ListItem({ text }: { text: string }) {
   return (
-    <div className={style.pros__item}>
-      <div className={style.pros__icon}>
+    <div className={style.Invitation__prosItem}>
+      <div className={style.Invitation__prosIcon}>
         <CheckMarkIconTwo />
       </div>
-      <div className={style.pros__text}>{text}</div>
+      <div className={style.Invitation__prosText}>{text}</div>
     </div>
   )
 }

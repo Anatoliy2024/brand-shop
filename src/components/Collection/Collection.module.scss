@@ -14,7 +14,7 @@
     // @media (max-width: 500px) {
     //   grid-template-columns: 1fr;
     // }
-    .ItemCollection {
+    .Collection__ItemCollection {
       padding: 10px;
       border-radius: 10px;
       cursor: pointer;
@@ -32,7 +32,7 @@
         color: white;
       }
 
-      .ItemCollection__imageWrapper {
+      .Collection__imageWrapper {
         padding-bottom: 12px;
 
         img {
@@ -44,25 +44,9 @@
       h4 {
         padding-bottom: 8px;
       }
-      .ItemCollection__price {
+      .Collection__price {
         font-family: var(--font-satoshi), sans-serif;
       }
     }
   }
-  // button {
-  //   font-family: var(--font-satoshi), sans-serif;
-  //   display: block;
-  //   width: 170px;
-  //   margin: 0 auto;
-  //   padding: 16px 32px;
-  //   background: var(--color-text-white-two);
-  //   &:hover {
-  //     background: var(--color-text-grey);
-  //     color: var(--color-text-white-two);
-  //   }
-  //   &:active {
-  //     background: var(--color-text-black);
-  //     color: white;
-  //   }
-  // }
 }

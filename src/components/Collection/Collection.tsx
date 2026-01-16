@@ -57,12 +57,12 @@ function ItemCollection({
   image: string
 }) {
   return (
-    <div className={`${style.ItemCollection} noSelect`}>
-      <div className={style.ItemCollection__imageWrapper}>
+    <div className={`${style.Collection__ItemCollection} noSelect`}>
+      <div className={style.Collection__imageWrapper}>
         <Image src={image} width={305} height={375} alt={title} />
       </div>
       <h4>{title}</h4>
-      <div className={style.ItemCollection__price}>£{price}</div>
+      <div className={style.Collection__price}>£{price}</div>
     </div>
   )
 }

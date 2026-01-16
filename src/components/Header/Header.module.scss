@@ -18,7 +18,7 @@ $widthMobile: 550px;
       align-items: center;
       gap: 20px;
 
-      .hamburger {
+      .Header__hamburger {
         width: 12px;
         height: 12px;
         position: relative;
@@ -50,16 +50,16 @@ $widthMobile: 550px;
         }
       }
       // открытое меню
-      .hamburgerOpen span:nth-child(1) {
+      .Header__hamburgerOpen span:nth-child(1) {
         top: 5px;
         transform: rotate(45deg);
       }
 
-      .hamburgerOpen span:nth-child(2) {
+      .Header__hamburgerOpen span:nth-child(2) {
         opacity: 0;
       }
 
-      .hamburgerOpen span:nth-child(3) {
+      .Header__hamburgerOpen span:nth-child(3) {
         top: 5px;
         transform: rotate(-45deg);
       }
@@ -148,7 +148,7 @@ $widthMobile: 550px;
     }
   }
 
-  .searchBlock__iconWrapper,
+  // .searchBlock__iconWrapper,
   .Header__iconWrapper,
   .Header__categoryItem {
     cursor: pointer;
