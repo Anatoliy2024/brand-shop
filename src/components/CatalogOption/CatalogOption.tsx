@@ -2,7 +2,7 @@ import {
   brandOption,
   categories,
   priceOption,
-  productOption,
+  // productOption,
 } from "@/data/categories"
 import style from "./CatalogOption.module.scss"
 
@@ -15,7 +15,7 @@ export function CatalogOption() {
       <div className={style.CatalogOption__content}>
         <div className={style.Filters}>
           <MenuOption title="Category" option={categories} />
-          <MenuOption title="Product type" option={productOption} />
+          {/* <MenuOption title="Product type" option={productOption} /> */}
           <MenuOption title="Price" option={priceOption} />
           <MenuOption title="Brand" option={brandOption} />
         </div>

@@ -3,18 +3,19 @@ export const categories = [
   { text: "Ceramics", link: "#", id: "Ceramics" },
   { text: "Tables", link: "#", id: "Tables" },
   { text: "Chairs", link: "#", id: "Chairs" },
-  { text: "Crockery", link: "#", id: "Crockery" },
   { text: "Tableware", link: "#", id: "Tableware" },
+  { text: "Art", link: "#", id: "Art" },
   { text: "Cutlery", link: "#", id: "Cutlery" },
+  { text: "Lamp", link: "#", id: "Lamp" },
 ]
 
-export const productOption = [
-  { text: "Furniture", id: "Furniture" },
-  { text: "Homeware", id: "Homeware" },
-  { text: "Sofas", id: "Sofas" },
-  { text: "Light fittings", id: "Light-fittings" },
-  { text: "Accessories", id: "Accessories" },
-]
+// export const productOption = [
+//   { text: "Furniture", id: "Furniture" },
+//   { text: "Homeware", id: "Homeware" },
+//   { text: "Sofas", id: "Sofas" },
+//   { text: "Light fittings", id: "Light-fittings" },
+//   { text: "Accessories", id: "Accessories" },
+// ]
 export const priceOption = [
   { text: "0 - 100", id: "one-hundred" },
   { text: "101 - 250", id: "two-hundred-fifty" },
