@@ -1,2 +1,9 @@
-.Catalog {
+.CatalogProduct {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  padding-bottom: 35px;
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
