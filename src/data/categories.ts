@@ -1,12 +1,12 @@
 export const categories = [
-  { text: "Plant pots", link: "#", id: "Plant-pots" },
-  { text: "Ceramics", link: "#", id: "Ceramics" },
-  { text: "Tables", link: "#", id: "Tables" },
-  { text: "Chairs", link: "#", id: "Chairs" },
-  { text: "Tableware", link: "#", id: "Tableware" },
-  { text: "Art", link: "#", id: "Art" },
-  { text: "Cutlery", link: "#", id: "Cutlery" },
-  { text: "Lamp", link: "#", id: "Lamp" },
+  { text: "Plant pots", link: "#", id: "plant-pots" },
+  { text: "Ceramics", link: "#", id: "ceramics" },
+  { text: "Tables", link: "#", id: "table" },
+  { text: "Chairs", link: "#", id: "chair" },
+  { text: "Tableware", link: "#", id: "tableware" },
+  { text: "Art", link: "#", id: "art" },
+  { text: "Cutlery", link: "#", id: "cutlery" },
+  { text: "Lamp", link: "#", id: "lamp" },
 ]
 
 // export const productOption = [
