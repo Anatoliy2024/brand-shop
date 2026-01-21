@@ -6,11 +6,11 @@ import {
   // productOption,
 } from "@/data/categories"
 import style from "./CatalogOption.module.scss"
-import {
-  ReadonlyURLSearchParams,
-  useRouter,
-  useSearchParams,
-} from "next/navigation"
+// import {
+//   ReadonlyURLSearchParams,
+//   useRouter,
+//   useSearchParams,
+// } from "next/navigation"
 
 type OptionType = { text: string; id: string; link?: string }[]
 
@@ -18,6 +18,9 @@ export function CatalogOption({
   filters,
 
   onChange,
+  resetFilter,
+  sort,
+  setSort,
 }: {
   filters: {
     brand: string[]
@@ -26,6 +29,9 @@ export function CatalogOption({
     page: number
   }
   onChange: (type: string, value: string) => void
+  resetFilter: () => void
+  sort: string
+  setSort: (value: string) => void
 }) {
   // const router = useRouter()
   // const searchParams = useSearchParams()
@@ -85,13 +91,33 @@ export function CatalogOption({
             selected={filters.brand}
             onChange={onChange}
           />
+          <button onClick={resetFilter}>reset</button>
         </div>
-        <div className={style.Sort}></div>
+        <div className={style.Sort}>
+          <div>Sorting by:</div>
+          <div>
+            <button className={style.Sort__trigger}>{sort}</button>
+            <ul className={style.Sort__optionsList}>
+              <li onClick={() => setSort("Date added")}>Date added</li>
+              <li onClick={() => setSort("Descending price")}>
+                Descending price
+              </li>
+              <li onClick={() => setSort("Ascending price")}>
+                Ascending price
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
+// function ListSort(setSort:(value: string) => void){
+//   return (
+//     <li onClick={() => setSort("Date added")}>Date added</li>
+//   )
+// }
 function MenuOption({
   title,
   option,
@@ -122,7 +148,7 @@ function MenuOption({
               id={optionItem.id}
               checked={selected.includes(optionItem.id)}
               readOnly
-            />{" "}
+            />
             <label htmlFor={optionItem.id}>{optionItem.text}</label>
           </li>
         ))}

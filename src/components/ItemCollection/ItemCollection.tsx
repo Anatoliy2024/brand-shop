@@ -10,7 +10,8 @@ export function ItemCollection({
   image: string
 }) {
   return (
-    <div className={`${style.ItemCollection} noSelect`}>
+    <div className={`${style.ItemCollection}`}>
+      {/* <div className={`${style.ItemCollection} noSelect`}> */}
       <div className={style.ItemCollection__imageWrapper}>
         <Image src={image} width={305} height={375} alt={title} />
       </div>
