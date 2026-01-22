@@ -6,6 +6,7 @@ import {
   // productOption,
 } from "@/data/categories"
 import style from "./CatalogOption.module.scss"
+import { ArrowBottom } from "@/assets/svg/ArrowBottom"
 // import {
 //   ReadonlyURLSearchParams,
 //   useRouter,
@@ -25,7 +26,7 @@ export function CatalogOption({
   filters: {
     brand: string[]
     category: string[]
-    price: string[]
+    price: string | null
     page: number
   }
   onChange: (type: string, value: string) => void
@@ -95,21 +96,54 @@ export function CatalogOption({
         </div>
         <div className={style.Sort}>
           <div>Sorting by:</div>
-          <div>
+          <div className={style.Sort__wrapper}>
             <button className={style.Sort__trigger}>{sort}</button>
+            <ArrowBottom />
             <ul className={style.Sort__optionsList}>
-              <li onClick={() => setSort("Date added")}>Date added</li>
+              <SortItem sortItem="Date added" sort={sort} setSort={setSort} />
+              <SortItem
+                sortItem="Descending price"
+                sort={sort}
+                setSort={setSort}
+              />
+              <SortItem
+                sortItem="Ascending price"
+                sort={sort}
+                setSort={setSort}
+              />
+              {/* <SortItem/>
+              <SortItem/> */}
+              {/* <li onClick={() => setSort("Date added")}>
+                <input /> Date added
+              </li>
               <li onClick={() => setSort("Descending price")}>
                 Descending price
               </li>
               <li onClick={() => setSort("Ascending price")}>
                 Ascending price
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+function SortItem({
+  sortItem,
+  sort,
+  setSort,
+}: {
+  sortItem: string
+  sort: string
+  setSort: (value: string) => void
+}) {
+  return (
+    <li onClick={() => setSort(sortItem)} className={style.Sort__options}>
+      <input type="radio" id={sortItem} checked={sortItem === sort} readOnly />
+      <label htmlFor="sortItem">{sortItem}</label>
+    </li>
   )
 }
 
@@ -127,15 +161,17 @@ function MenuOption({
   title: string
   option: OptionType
   onChange: (type: string, value: string) => void
-  selected: string[]
+  selected: string[] | string | null
 }) {
   // const searchParams = useSearchParams()
   // const selected = searchParams.get(title)?.split(",") || []
   // console.log("searchParams.get(title)", searchParams.get(title))
   // console.log("searchParams", searchParams)
+
   return (
     <div className={`${style.Filters__item} noSelect`}>
       <button className={style.Filters__trigger}>{title}</button>
+      <ArrowBottom />
       <ul className={style.Filters__optionsList}>
         {option.map((optionItem) => (
           <li
@@ -144,9 +180,13 @@ function MenuOption({
             onClick={() => onChange(title, optionItem.id)}
           >
             <input
-              type="checkbox"
+              type={"checkbox"}
               id={optionItem.id}
-              checked={selected.includes(optionItem.id)}
+              checked={
+                Array.isArray(selected)
+                  ? selected.includes(optionItem.id)
+                  : selected === optionItem.id
+              }
               readOnly
             />
             <label htmlFor={optionItem.id}>{optionItem.text}</label>

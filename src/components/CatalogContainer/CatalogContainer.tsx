@@ -3,17 +3,19 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { CatalogOption } from "../CatalogOption/CatalogOption"
 import { CatalogProduct } from "../CatalogProduct/CatalogProduct"
 import { catalogBd, CatalogBdType } from "@/data/catalogBD"
+import { priceOption } from "@/data/categories"
 
 export function CatalogContainer() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
   // function findMissingByTitle(arr1, arr2) {
-  //   const titles2 = new Set(arr2.map((item) => item.title))
-  //   return arr1.filter((item) => !titles2.has(item.title))
+  //   const titles2 = new Set(arr2.map((item) => item.image))
+  //   return arr1.filter((item) => !titles2.has(item.image))
   // }
   // const result = findMissingByTitle(catalogBd1, catalogBd)
   // console.log("result", result)
+
   //   const page = Number(searchParams.get("page")) || 1
   //   const brand = searchParams.get("brand")?.split(",") || []
   //   const category = searchParams.get("category")?.split(",") || []
@@ -21,7 +23,8 @@ export function CatalogContainer() {
   const filters = {
     category: searchParams.get("category")?.split(",") || [],
     brand: searchParams.get("brand")?.split(",") || [],
-    price: searchParams.get("price")?.split(",") || [],
+    price: searchParams.get("price") || null,
+    // price: searchParams.get("price")?.split(",") || [],
     page: Number(searchParams.get("page")) || 1,
   }
 
@@ -41,11 +44,29 @@ export function CatalogContainer() {
       return false
 
     // Цена (если фильтр пустой — пропускаем)
-    if (filters.price.length && !filters.price.includes(item.price.toString()))
-      return false
+    if (filters.price) {
+      const range = priceOption.find((el) => el.id === filters.price)
+
+      if (range) {
+        const minOk = item.price >= range.min
+        const maxOk = range.max === null ? true : item.price <= range.max
+
+        if (!minOk || !maxOk) return false
+      }
+
+      // const params = priceOption.filter(el=>el.id===filters.price)[0]
+      // if(item.price<params.min ||item.price>params.max)
+      // return false
+    }
 
     return true
   })
+
+  // export const priceOption = [
+  //   { text: "0 - 100", id: "one-hundred", min: 0, max: 100 },
+  //   { text: "101 - 250", id: "two-hundred-fifty", min: 101, max: 250 },
+  //   { text: "251 +", id: "over-two-hundred-fifty", min: 251, max: null },
+  // ]
 
   const sortCatalog = (catalog: CatalogBdType) => {
     if (sort === "Date added") {
@@ -62,16 +83,25 @@ export function CatalogContainer() {
 
   const setFilter = (type: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString())
-    const current = params.get(type)?.split(",").filter(Boolean) || []
+    if (type !== "price") {
+      const current = params.get(type)?.split(",").filter(Boolean) || []
 
-    const updated = current.includes(value)
-      ? current.filter((v) => v !== value)
-      : [...current, value]
+      const updated = current.includes(value)
+        ? current.filter((v) => v !== value)
+        : [...current, value]
 
-    if (updated.length) {
-      params.set(type, updated.join(","))
-    } else {
-      params.delete(type)
+      if (updated.length) {
+        params.set(type, updated.join(","))
+      } else {
+        params.delete(type)
+      }
+    } else if (type === "price") {
+      const current = params.get(type)
+      if (current && current === value) {
+        params.delete(type)
+      } else {
+        params.set(type, value)
+      }
     }
 
     params.set("page", "1")

@@ -17,6 +17,11 @@
   flex-direction: column;
   gap: 10px;
 }
+@mixin svg {
+  transform: rotate(180deg);
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
 
 .CatalogOption {
   h3 {
@@ -36,7 +41,13 @@
         position: relative;
         padding: 5px;
         font-family: var(--font-satoshi), sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         //   cursor: pointer;
+        svg {
+          @include svg;
+        }
 
         .Filters__optionsList {
           @include list;
@@ -70,26 +81,53 @@
           pointer-events: auto;
           // transform: translateY(0);
         }
+        &:hover svg {
+          transform: rotate(0);
+          // transform: translateY(0);
+        }
       }
     }
     .Sort {
       display: flex;
+      align-items: center;
       position: relative;
-      padding: 5px;
       font-family: var(--font-satoshi), sans-serif;
+      padding: 5px;
+      width: 237px;
+      gap: 20px;
+      .Sort__wrapper {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        svg {
+          @include svg;
+        }
+        .Sort__optionsList {
+          @include list;
+          // position: absolute;
+          // top: 100%;
+          right: 0;
+          .Sort__options {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            input,
+            label {
+              cursor: pointer;
+            }
+          }
+        }
 
-      .Sort__optionsList {
-        @include list;
-        // position: absolute;
-        // top: 100%;
-        right: 0;
-      }
-
-      &:hover .Sort__optionsList {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        // transform: translateY(0);
+        &:hover .Sort__optionsList {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          // transform: translateY(0);
+        }
+        &:hover svg {
+          transform: rotate(0);
+          // transform: translateY(0);
+        }
       }
     }
   }

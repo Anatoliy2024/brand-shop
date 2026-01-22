@@ -17,9 +17,9 @@ export const categories = [
 //   { text: "Accessories", id: "Accessories" },
 // ]
 export const priceOption = [
-  { text: "0 - 100", id: "one-hundred" },
-  { text: "101 - 250", id: "two-hundred-fifty" },
-  { text: "250 +", id: "over-two-hundred-fifty" },
+  { text: "0 - 100", id: "one-hundred", min: 0, max: 100 },
+  { text: "101 - 250", id: "two-hundred-fifty", min: 101, max: 250 },
+  { text: "251 +", id: "over-two-hundred-fifty", min: 251, max: null },
 ]
 export const brandOption = [
   { text: "Robert Smith", id: "Robert-Smith" },
