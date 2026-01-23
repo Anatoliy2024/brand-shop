@@ -9,17 +9,6 @@ export function CatalogContainer() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  // function findMissingByTitle(arr1, arr2) {
-  //   const titles2 = new Set(arr2.map((item) => item.image))
-  //   return arr1.filter((item) => !titles2.has(item.image))
-  // }
-  // const result = findMissingByTitle(catalogBd1, catalogBd)
-  // console.log("result", result)
-
-  //   const page = Number(searchParams.get("page")) || 1
-  //   const brand = searchParams.get("brand")?.split(",") || []
-  //   const category = searchParams.get("category")?.split(",") || []
-
   const filters = {
     category: searchParams.get("category")?.split(",") || [],
     brand: searchParams.get("brand")?.split(",") || [],
@@ -53,20 +42,10 @@ export function CatalogContainer() {
 
         if (!minOk || !maxOk) return false
       }
-
-      // const params = priceOption.filter(el=>el.id===filters.price)[0]
-      // if(item.price<params.min ||item.price>params.max)
-      // return false
     }
 
     return true
   })
-
-  // export const priceOption = [
-  //   { text: "0 - 100", id: "one-hundred", min: 0, max: 100 },
-  //   { text: "101 - 250", id: "two-hundred-fifty", min: 101, max: 250 },
-  //   { text: "251 +", id: "over-two-hundred-fifty", min: 251, max: null },
-  // ]
 
   const sortCatalog = (catalog: CatalogBdType) => {
     if (sort === "Date added") {
@@ -110,29 +89,13 @@ export function CatalogContainer() {
 
   const setSort = (value: string) => {
     const params = new URLSearchParams(searchParams.toString())
-    // const current = params.get(type)?.split(",").filter(Boolean) || []
-
-    // const updated = current.includes(value)
-    //   ? current.filter((v) => v !== value)
-    //   : [...current, value]
-
-    // const sort = params.get("Sort")
-    // if (sort) {
     params.set("sort", value)
-    // }
-    // else {
-    //   params.delete('Sort')
-    // }
 
     params.set("page", "1")
     router.push(`/catalog?${params.toString()}`, { scroll: false })
   }
 
   const resetFilter = () => {
-    // const params = new URLSearchParams()
-
-    // params.set("page", "1")
-    // router.push(`/catalog?${params.toString()}`, { scroll: false })
     router.push(`/catalog`, { scroll: false })
   }
 
