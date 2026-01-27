@@ -3,6 +3,11 @@
   margin: 0 auto;
   padding: clamp(0px, 1vw, 28px) 10px clamp(0px, 2vw, 40px);
 
+  h3 {
+    padding: clamp(15px, 5vw, 54px) 10px clamp(15px, 4vw, 29px) 0;
+    font-size: var(--fs-xl);
+  }
+
   .Collection__list {
     display: grid;
     gap: 20px;

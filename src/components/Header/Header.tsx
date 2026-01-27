@@ -7,7 +7,7 @@ import { categories } from "@/data/categories"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 
-export function Header() {
+export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [showButton, setShowButton] = useState(false)
 
@@ -72,7 +72,11 @@ export function Header() {
             </div>
           )}
         </div>
-        <div className={style.Header__logo}>Avion</div>
+        {/* <div className={style.Header__logo}>            */}
+        <Link href="/" className={style.Header__logo}>
+          Avion
+        </Link>
+        {/* </div> */}
         {!showButton && (
           <div className={style.Header__userInfo}>
             <div className={style.Header__iconWrapper}>
@@ -85,17 +89,21 @@ export function Header() {
         )}
       </div>
       <hr className={style.Header__separator} />
-      <ul
-        className={`${style.Header__categories} ${
-          !menuOpen ? style.hidden : ""
-        }`}
-      >
-        {categories.map((item, index) => (
-          <li key={index} className={style.Header__categoryItem}>
-            <Link href={item.link}>{item.text}</Link>
-          </li>
-        ))}
-      </ul>
+      {!hiddenCatalog && (
+        <>
+          <ul
+            className={`${style.Header__categories} ${
+              !menuOpen ? style.hidden : ""
+            }`}
+          >
+            {categories.map((item, index) => (
+              <li key={index} className={style.Header__categoryItem}>
+                <Link href={`/catalog?category=${item.id}`}>{item.text}</Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       {menuOpen && showButton && (
         <div className={style.overlay} onClick={() => setMenuOpen(false)} />
       )}

@@ -12,16 +12,13 @@
 
   &__imageWrapper {
     width: 100%;
-    height: 260px;
-    @media (min-width: 1024px) {
-      height: auto;
-    }
-  }
+    // height: 260px;
 
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__content {
@@ -42,9 +39,9 @@
   }
 
   &__title {
-    font-family: "Clash Display", sans-serif;
+    // font-family: "Clash Display", sans-serif;
     font-size: 24px;
-    color: #2a254b;
+    color: var(--color-text-black);
     margin-bottom: 16px;
 
     @media (min-width: 1024px) {
@@ -53,9 +50,9 @@
   }
 
   &__text {
-    font-family: "Satoshi", sans-serif;
+    font-family: var(--font-satoshi), sans-serif;
     font-size: 16px;
-    color: #2a254b;
+    color: var(--color-text-black);
     line-height: 150%;
     margin-bottom: 40px;
 
@@ -75,29 +72,33 @@
   }
 
   &__input {
+    width: 100%;
     flex: 1;
     background-color: #f9f9f9;
-    padding: 16px 32px;
-    font-family: "Satoshi", sans-serif;
+    padding: 16px clamp(10px, 2vw, 32px);
+    font-family: var(--font-satoshi), sans-serif;
+
     font-size: 16px;
-    color: #2a254b;
+    color: var(--color-text-black);
 
     &::placeholder {
-      color: #2a254b;
+      color: var(--color-text-black);
       opacity: 0.2;
     }
 
-    &:focus {
-      outline: none;
-      border: 2px solid #2a254b;
-    }
+    // &:focus {
+    //   outline: none;
+    //   border: 2px solid #2a254b;
+    // }
   }
 
   &__button {
-    background-color: #2a254b;
+    background-color: var(--color-text-black);
+    // background-color: #2a254b;
     color: #fff;
     padding: 16px 32px;
-    font-family: "Satoshi", sans-serif;
+    font-family: var(--font-satoshi), sans-serif;
+
     font-size: 16px;
     white-space: nowrap;
     transition: background-color 0.2s;

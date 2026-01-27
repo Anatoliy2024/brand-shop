@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react"
 import styles from "./InvitationTwo.module.scss"
+import Image from "next/image"
 
 export const InvitationTwo: React.FC = () => {
   const [email, setEmail] = useState("")
@@ -10,11 +11,17 @@ export const InvitationTwo: React.FC = () => {
       <div className={styles.join__grid}>
         {/* Image */}
         <div className={styles.join__imageWrapper}>
-          <img
+          <Image
+            src="/img/interior-4.png"
+            width={720}
+            height={521}
+            alt="/interior-4.png"
+          />
+          {/* <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/2cbf591338280a3fa3c36b56d4bb802c8184e23b?width=1440"
             alt="Modern interior"
             className={styles.join__image}
-          />
+          /> */}
         </div>
 
         {/* Content */}

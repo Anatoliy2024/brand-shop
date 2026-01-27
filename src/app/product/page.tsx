@@ -15,15 +15,14 @@ export default function Catalog() {
   // const catalog = catalogBd.slice(0, 10)
   return (
     <InnerApp>
-      <Suspense fallback={null}>
+      <div>Пожалуйста выберите товар</div>
+      {/* <Suspense fallback={null}>
         <Product />
         <Collection />
         <Different />
         <InvitationTwo />
-        {/* <CatalogOption />
-        <CatalogProduct /> */}
-        {/* <CatalogProduct catalog={catalogBd} /> */}
-      </Suspense>
+        
+      </Suspense> */}
     </InnerApp>
   )
 }

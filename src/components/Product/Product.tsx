@@ -1,12 +1,18 @@
 "use client"
 import { useState } from "react"
 import styles from "./Product.module.scss"
+import { catalogBd } from "@/data/catalogBD"
+import Image from "next/image"
 
-export default function Product() {
+export default function Product({ id }: { id: number }) {
+  const product = catalogBd.find((product) => product.id === id)
+
   const [quantity, setQuantity] = useState<number>(1)
 
   const incrementQuantity = () => setQuantity((q) => q + 1)
   const decrementQuantity = () => setQuantity((q) => Math.max(1, q - 1))
+
+  if (!product) return
 
   return (
     <div className={styles.product}>
@@ -14,19 +20,25 @@ export default function Product() {
         <div className={styles.product__grid}>
           {/* Image */}
           <div className={styles.product__imageWrapper}>
-            <img
+            <Image
+              src={product.image}
+              width={607}
+              height={661}
+              alt={product.title}
+            />
+            {/* <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/24dbbce02a6d77e1a06044d652ece6cad61ad345?width=1214"
               alt="The Dandy Chair"
-              className={styles.product__image}
-            />
+              // className={styles.product__image}
+            /> */}
           </div>
 
           {/* Content */}
           <div className={styles.product__content}>
             {/* Title & price */}
             <div className={styles.product__header}>
-              <h1 className={styles.product__title}>The Dandy Chair</h1>
-              <p className={styles.product__price}>£250</p>
+              <h1 className={styles.product__title}>{product.title}</h1>
+              <p className={styles.product__price}>£{product.price}</p>
             </div>
 
             <div className={styles.product__divider} />
@@ -36,9 +48,7 @@ export default function Product() {
               <h2 className={styles.product__sectionTitle}>
                 Product description
               </h2>
-              <p className={styles.product__text}>
-                A timeless design, with premium materials…
-              </p>
+              <p className={styles.product__text}>{product.description}</p>
             </div>
 
             {/* Dimensions */}
@@ -48,21 +58,27 @@ export default function Product() {
               <div className={styles.product__dimensions}>
                 <div className={styles.product__dimension}>
                   <span className={styles.product__dimLabel}>Height</span>
-                  <span className={styles.product__dimValue}>110cm</span>
+                  <span className={styles.product__dimValue}>
+                    {product.dimensions.Height}cm
+                  </span>
                 </div>
 
                 <div className={styles.product__dimDivider} />
 
                 <div className={styles.product__dimension}>
                   <span className={styles.product__dimLabel}>Width</span>
-                  <span className={styles.product__dimValue}>75cm</span>
+                  <span className={styles.product__dimValue}>
+                    {product.dimensions.Width}cm
+                  </span>
                 </div>
 
                 <div className={styles.product__dimDivider} />
 
                 <div className={styles.product__dimension}>
                   <span className={styles.product__dimLabel}>Depth</span>
-                  <span className={styles.product__dimValue}>50cm</span>
+                  <span className={styles.product__dimValue}>
+                    {product.dimensions.Depth}cm
+                  </span>
                 </div>
               </div>
             </div>

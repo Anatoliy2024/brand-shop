@@ -4,17 +4,22 @@ import style from "./CatalogProduct.module.scss"
 
 export function CatalogProduct({
   catalogItems,
-}: {
+}: // showProduct,
+{
   catalogItems: CatalogBdType
+  // showProduct: (value: number) => void
 }) {
+  // const { showProduct } = useShowProduct()
   return (
     <div className={style.CatalogProduct}>
       {catalogItems.map((product) => (
         <ItemCollection
           key={product.id}
+          id={product.id}
           title={product.title}
           price={product.price}
           image={product.image}
+          // showProduct={showProduct}
         />
       ))}
     </div>

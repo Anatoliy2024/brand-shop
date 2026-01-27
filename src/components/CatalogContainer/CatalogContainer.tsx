@@ -95,6 +95,14 @@ export function CatalogContainer() {
     router.push(`/catalog?${params.toString()}`, { scroll: false })
   }
 
+  // const showProduct = (value: number) => {
+  //   // const params = new URLSearchParams(searchParams.toString())
+  //   // params.set("sort", value)
+
+  //   // params.set("page", "1")
+  //   router.push(`/product/${value}`, { scroll: false })
+  // }
+
   const resetFilter = () => {
     router.push(`/catalog`, { scroll: false })
   }
@@ -109,7 +117,10 @@ export function CatalogContainer() {
         setSort={setSort}
         resetFilter={resetFilter}
       />
-      <CatalogProduct catalogItems={sortCatalog(catalogItems)} />
+      <CatalogProduct
+        catalogItems={sortCatalog(catalogItems)}
+        // showProduct={showProduct}
+      />
     </>
   )
 }

@@ -12,7 +12,7 @@ export default function Catalog() {
 
   // const catalog = catalogBd.slice(0, 10)
   return (
-    <InnerApp>
+    <InnerApp hiddenCatalog={true}>
       <Suspense fallback={null}>
         <CatalogContainer />
         {/* <CatalogOption />

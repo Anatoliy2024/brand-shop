@@ -68,7 +68,7 @@ export function CatalogOption({
 
   return (
     <div className={style.CatalogOption}>
-      <h3>Catalog</h3>
+      {/* <h3>Catalog</h3> */}
       <div className={style.CatalogOption__content}>
         <div className={style.Filters}>
           <MenuOption

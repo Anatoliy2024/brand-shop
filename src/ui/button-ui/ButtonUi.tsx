@@ -7,7 +7,7 @@ export function ButtonUi({ className }: { className: string }) {
     <button
       className={`${style.ButtonUi} ${className ? style[className] : ""}`}
     >
-      <Link href="catalog">View collection</Link>
+      <Link href="/catalog">View collection</Link>
     </button>
   )
 }
