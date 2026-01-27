@@ -1,0 +1,109 @@
+.join {
+  width: 100%;
+  background-color: #fff;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    @media (min-width: 650px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__imageWrapper {
+    width: 100%;
+    height: 260px;
+    @media (min-width: 1024px) {
+      height: auto;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+
+    @media (min-width: 1024px) {
+      padding: 80px 64px;
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: "Clash Display", sans-serif;
+    font-size: 24px;
+    color: #2a254b;
+    margin-bottom: 16px;
+
+    @media (min-width: 1024px) {
+      font-size: 32px;
+    }
+  }
+
+  &__text {
+    font-family: "Satoshi", sans-serif;
+    font-size: 16px;
+    color: #2a254b;
+    line-height: 150%;
+    margin-bottom: 40px;
+
+    @media (min-width: 1024px) {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    // flex-direction: column;
+    gap: 0;
+
+    // @media (min-width: 640px) {
+    //   flex-direction: row;
+    // }
+  }
+
+  &__input {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 16px 32px;
+    font-family: "Satoshi", sans-serif;
+    font-size: 16px;
+    color: #2a254b;
+
+    &::placeholder {
+      color: #2a254b;
+      opacity: 0.2;
+    }
+
+    &:focus {
+      outline: none;
+      border: 2px solid #2a254b;
+    }
+  }
+
+  &__button {
+    background-color: #2a254b;
+    color: #fff;
+    padding: 16px 32px;
+    font-family: "Satoshi", sans-serif;
+    font-size: 16px;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #3d3563;
+    }
+  }
+}
