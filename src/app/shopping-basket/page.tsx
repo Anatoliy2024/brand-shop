@@ -1,5 +1,6 @@
 // "use client"
-import Cart from "@/components/Cart/Cart"
+import ShoppingBasket from "@/components/Cart/ShoppingBasket"
+import Cart from "@/components/Cart/ShoppingBasket"
 import { CatalogContainer } from "@/components/CatalogContainer/CatalogContainer"
 
 import InnerApp from "@/providers/InnerApp"
@@ -9,7 +10,7 @@ export default function Catalog() {
   return (
     <InnerApp>
       <Suspense fallback={null}>
-        <Cart />
+        <ShoppingBasket />
         {/* <CatalogOption />
         <CatalogProduct /> */}
         {/* <CatalogProduct catalog={catalogBd} /> */}
