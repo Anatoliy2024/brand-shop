@@ -1,7 +1,10 @@
 "use client"
-import * as React from "react"
+// import * as React from "react"
 import style from "./ShoppingBasket.module.scss"
 import Image from "next/image"
+import { getCart, removeFromCart, saveCart, updateQty } from "@/utils/cart"
+import { useEffect, useState } from "react"
+import Link from "next/link"
 
 interface Product {
   id: string
@@ -9,39 +12,28 @@ interface Product {
   description: string
   price: number
   image: string
-  quantity: number
+  qty: number
 }
 
 export default function ShoppingBasket() {
-  const [products, setProducts] = React.useState<Product[]>([
-    {
-      id: "1",
-      name: "Graystone vase",
-      description: "A timeless ceramic vase with\na tri color grey glaze.",
-      price: 85,
-      image: "/img/itemCollection-1.png",
-      quantity: 1,
-    },
-    {
-      id: "2",
-      name: "Basic white vase",
-      description: "Beautiful and simple this is\none for the classics",
-      price: 125,
-      image: "/img/itemCollection-2.png",
+  const [products, setProducts] = useState<Product[]>([])
 
-      quantity: 1,
-    },
-  ])
-
-  const handleQuantityChange = (productId: string, newQuantity: number) => {
-    setProducts((prevProducts) =>
-      prevProducts.map((product) =>
-        product.id === productId
-          ? { ...product, quantity: newQuantity }
-          : product
-      )
-    )
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      if (typeof window !== "undefined") {
+        setProducts(getCart())
+      }
+    }, 0)
+  }, [])
+  // const handleQuantityChange = (productId: string, newQuantity: number) => {
+  //   setProducts((prevProducts) => {
+  //     const updated = prevProducts.map((product) =>
+  //       product.id === productId ? { ...product, qty: newQuantity } : product
+  //     )
+  //     updateQty(productId, newQuantity) // сохраняем в localStorage
+  //     return updated
+  //   })
+  // }
 
   const handleDecrease = (productId: string, currentQuantity: number) => {
     if (currentQuantity > 1) {
@@ -50,6 +42,7 @@ export default function ShoppingBasket() {
   }
 
   const handleIncrease = (productId: string, currentQuantity: number) => {
+    // updateQty(productId, currentQuantity)
     handleQuantityChange(productId, currentQuantity + 1)
   }
 
@@ -58,9 +51,49 @@ export default function ShoppingBasket() {
   }
 
   const subtotal = products.reduce(
-    (sum, product) => sum + product.price * product.quantity,
+    (sum, product) => sum + product.price * product.qty,
     0
   )
+
+  // // const removeCart = (id) => {
+  // //   removeFromCart(id)
+  // //   setProducts(getCart())
+  // //   // setProducts((prev) => prev.id !== id)
+  // // }
+  // const removeCart = (id: string) => {
+  //   setProducts((prev) => {
+  //     const updated = prev.filter((p) => p.id !== id)
+  //     removeFromCart(id) // сохраняем в localStorage
+  //     return updated
+  //   })
+  // }
+
+  // useEffect(() => {
+  //   if (typeof window === "undefined") return
+
+  //   const cart = getCart() // просто чистая функция, не setState внутри
+  //   setProducts(cart)
+  // }, [])
+
+  // Обновление количества
+  const handleQuantityChange = (productId: string, newQty: number) => {
+    setProducts((prev) => {
+      const updated = prev.map((p) =>
+        p.id === productId ? { ...p, qty: newQty } : p
+      )
+      saveCart(updated) // синхронизируем localStorage
+      return updated
+    })
+  }
+
+  // Удаление
+  const removeCart = (productId: string) => {
+    setProducts((prev) => {
+      const updated = prev.filter((p) => p.id !== productId)
+      saveCart(updated)
+      return updated
+    })
+  }
 
   return (
     <section className={style.shoppingBasket}>
@@ -80,14 +113,17 @@ export default function ShoppingBasket() {
 
           <div className={style.shoppingBasket__products}>
             {products.map((product) => {
-              const total = product.price * product.quantity
+              const total = product.price * product.qty
 
               return (
                 <div key={product.id} className={style.shoppingBasket__product}>
-                  <div className={style.shoppingBasket__productInfo}>
+                  <Link
+                    className={style.shoppingBasket__productInfo}
+                    href={`/product/${product.id}`}
+                  >
                     <Image
                       src={product.image}
-                      alt={product.name}
+                      alt={product.title}
                       className={style.shoppingBasket__productImage}
                       width={109}
                       height={134}
@@ -96,47 +132,47 @@ export default function ShoppingBasket() {
                       <h3 className={style.shoppingBasket__productName}>
                         {product.name}
                       </h3>
-                      <p className={style.shoppingBasket__productDescription}>
-                        {product.description.split("\n").map((line, index) => (
-                          <React.Fragment key={index}>
+                      <div className={style.shoppingBasket__productDescription}>
+                        <div>{product.title}</div>
+                        <div>{product.description}</div>
+                        {/* {product.description.split("\n").map((line, index) => (
+                          <>
+                          
                             {line}
                             {index <
                               product.description.split("\n").length - 1 && (
                               <br />
                             )}
-                          </React.Fragment>
-                        ))}
-                      </p>
+                          </>
+                        ))} */}
+                      </div>
                       <p className={style.shoppingBasket__productPrice}>
                         £{product.price}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                   {/* <div className={style.shoppingBasket__productControls}> */}
                   <div className={style.shoppingBasket__stepper}>
                     <button
                       className={style.shoppingBasket__stepperButton}
-                      onClick={() =>
-                        handleDecrease(product.id, product.quantity)
-                      }
+                      onClick={() => handleDecrease(product.id, product.qty)}
                       aria-label="Decrease quantity"
                     >
                       -
                     </button>
                     <span className={style.shoppingBasket__stepperValue}>
-                      {product.quantity}
+                      {product.qty}
                     </span>
                     <button
                       className={style.shoppingBasket__stepperButton}
-                      onClick={() =>
-                        handleIncrease(product.id, product.quantity)
-                      }
+                      onClick={() => handleIncrease(product.id, product.qty)}
                       aria-label="Increase quantity"
                     >
                       +
                     </button>
                   </div>
                   <p className={style.shoppingBasket__productTotal}>£{total}</p>
+                  <div onClick={() => removeCart(product.id)}>X</div>
                   {/* </div> */}
                 </div>
               )
@@ -171,101 +207,3 @@ export default function ShoppingBasket() {
     </section>
   )
 }
-
-// "use client"
-// import { useState } from "react"
-// import style from "./Cart.module.scss"
-
-// interface CartItem {
-//   id: number
-//   title: string
-//   description: string
-//   price: number
-//   quantity: number
-//   image: string
-// }
-
-// export default function Cart() {
-//   const [items, setItems] = useState<CartItem[]>([
-//     {
-//       id: 1,
-//       title: "Graystone vase",
-//       description: "A timeless ceramic vase with a tri color grey glaze.",
-//       price: 85,
-//       quantity: 1,
-//       image:
-//         "https://api.builder.io/api/v1/image/assets/TEMP/2cbf591338280a3fa3c36b56d4bb802c8184e23b?width=1440",
-//     },
-//     {
-//       id: 2,
-//       title: "Basic white vase",
-//       description: "Beautiful and simple this is one for the classics",
-//       price: 125,
-//       quantity: 1,
-//       image:
-//         "https://api.builder.io/api/v1/image/assets/TEMP/2cbf591338280a3fa3c36b56d4bb802c8184e23b?width=1440",
-//     },
-//   ])
-
-//   const increment = (id: number) => {
-//     setItems(
-//       items.map((item) =>
-//         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-//       )
-//     )
-//   }
-
-//   const decrement = (id: number) => {
-//     setItems(
-//       items.map((item) =>
-//         item.id === id
-//           ? { ...item, quantity: Math.max(1, item.quantity - 1) }
-//           : item
-//       )
-//     )
-//   }
-
-//   const subtotal = items.reduce(
-//     (sum, item) => sum + item.price * item.quantity,
-//     0
-//   )
-
-//   return (
-//     <div className={style.cart}>
-//       <h2 className={style.cart__title}>Your shopping cart</h2>
-//       <div className={style.cart__list}>
-//         {items.map((item) => (
-//           <div key={item.id} className={style.cart__item}>
-//             <img
-//               src={item.image}
-//               alt={item.title}
-//               className={style.cart__itemImage}
-//             />
-//             <div className={style.cart__itemInfo}>
-//               <h3 className={style.cart__itemTitle}>{item.title}</h3>
-//               <p className={style.cart__itemDesc}>{item.description}</p>
-//               <p className={style.cart__itemPrice}>£{item.price}</p>
-//             </div>
-//             <div className={style.cart__itemQuantity}>
-//               <button
-//                 onClick={() => decrement(item.id)}
-//                 disabled={item.quantity === 1}
-//               >
-//                 -
-//               </button>
-//               <span>{item.quantity}</span>
-//               <button onClick={() => increment(item.id)}>+</button>
-//             </div>
-//             <div className={style.cart__itemTotal}>
-//               £{item.price * item.quantity}
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//       <div className={style.cart__footer}>
-//         <span className={style.cart__subtotal}>Subtotal £{subtotal}</span>
-//         <button className={style.cart__checkout}>Go to checkout</button>
-//       </div>
-//     </div>
-//   )
-// }

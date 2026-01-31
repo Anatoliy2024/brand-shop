@@ -3,6 +3,7 @@ import { useState } from "react"
 import styles from "./Product.module.scss"
 import { catalogBd } from "@/data/catalogBD"
 import Image from "next/image"
+import { addToCart, mapProductToCartItem } from "@/utils/cart"
 
 export default function Product({ id }: { id: number }) {
   const product = catalogBd.find((product) => product.id === id)
@@ -13,6 +14,12 @@ export default function Product({ id }: { id: number }) {
   const decrementQuantity = () => setQuantity((q) => Math.max(1, q - 1))
 
   if (!product) return
+
+  const addCart = () => {
+    console.log("quantity", quantity)
+
+    addToCart(mapProductToCartItem(product, quantity), quantity)
+  }
 
   return (
     <div className={styles.product}>
@@ -115,7 +122,12 @@ export default function Product({ id }: { id: number }) {
 
             {/* Buttons */}
             <div className={styles.product__buttons}>
-              <button className={styles.product__addBtn}>Add to cart</button>
+              <button
+                className={styles.product__addBtn}
+                onClick={() => addCart()}
+              >
+                Add to cart
+              </button>
               <button className={styles.product__saveBtn}>
                 Save to favorites
               </button>

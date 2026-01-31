@@ -1,10 +1,10 @@
-// "use client"
+"use client"
 import ShoppingBasket from "@/components/Cart/ShoppingBasket"
 import Cart from "@/components/Cart/ShoppingBasket"
 import { CatalogContainer } from "@/components/CatalogContainer/CatalogContainer"
 
 import InnerApp from "@/providers/InnerApp"
-import { Suspense } from "react"
+import { Suspense, useState } from "react"
 
 export default function Catalog() {
   return (

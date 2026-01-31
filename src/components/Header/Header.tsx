@@ -79,9 +79,12 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
         {/* </div> */}
         {!showButton && (
           <div className={style.Header__userInfo}>
-            <div className={style.Header__iconWrapper}>
+            <Link
+              className={style.Header__iconWrapper}
+              href={"/shopping-basket"}
+            >
               <ShoppingCardIcon />
-            </div>
+            </Link>
             <div className={style.Header__iconWrapper}>
               <UserAvatarIcon />
             </div>
