@@ -56,7 +56,7 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
     <div className={style.Header}>
       <div className={style.Header__top}>
         <div className={style.Header__searchBlock}>
-          <div className={style.Header__iconWrapper}>
+          <div aria-label="search" className={style.Header__iconWrapper}>
             <SearchIcon />
           </div>
           {showButton && (
@@ -80,14 +80,19 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
         {!showButton && (
           <div className={style.Header__userInfo}>
             <Link
+              aria-label="Go to shopping basket"
               className={style.Header__iconWrapper}
               href={"/shopping-basket"}
             >
               <ShoppingCardIcon />
             </Link>
-            <div className={style.Header__iconWrapper}>
+            <Link
+              aria-label="Go to profile user"
+              href="#"
+              className={style.Header__iconWrapper}
+            >
               <UserAvatarIcon />
-            </div>
+            </Link>
           </div>
         )}
       </div>

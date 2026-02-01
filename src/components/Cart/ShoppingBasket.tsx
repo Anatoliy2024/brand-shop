@@ -1,14 +1,14 @@
 "use client"
-// import * as React from "react"
+
 import style from "./ShoppingBasket.module.scss"
 import Image from "next/image"
-import { getCart, removeFromCart, saveCart, updateQty } from "@/utils/cart"
+import { getCart, saveCart } from "@/utils/cart"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 
-interface Product {
-  id: string
-  name: string
+export interface Product {
+  id: number
+  title: string
   description: string
   price: number
   image: string
@@ -17,32 +17,20 @@ interface Product {
 
 export default function ShoppingBasket() {
   const [products, setProducts] = useState<Product[]>([])
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => {
-      if (typeof window !== "undefined") {
-        setProducts(getCart())
-      }
-    }, 0)
+    setMounted(true)
+    setProducts(getCart())
   }, [])
-  // const handleQuantityChange = (productId: string, newQuantity: number) => {
-  //   setProducts((prevProducts) => {
-  //     const updated = prevProducts.map((product) =>
-  //       product.id === productId ? { ...product, qty: newQuantity } : product
-  //     )
-  //     updateQty(productId, newQuantity) // сохраняем в localStorage
-  //     return updated
-  //   })
-  // }
 
-  const handleDecrease = (productId: string, currentQuantity: number) => {
+  const handleDecrease = (productId: number, currentQuantity: number) => {
     if (currentQuantity > 1) {
       handleQuantityChange(productId, currentQuantity - 1)
     }
   }
 
-  const handleIncrease = (productId: string, currentQuantity: number) => {
-    // updateQty(productId, currentQuantity)
+  const handleIncrease = (productId: number, currentQuantity: number) => {
     handleQuantityChange(productId, currentQuantity + 1)
   }
 
@@ -55,155 +43,138 @@ export default function ShoppingBasket() {
     0
   )
 
-  // // const removeCart = (id) => {
-  // //   removeFromCart(id)
-  // //   setProducts(getCart())
-  // //   // setProducts((prev) => prev.id !== id)
-  // // }
-  // const removeCart = (id: string) => {
-  //   setProducts((prev) => {
-  //     const updated = prev.filter((p) => p.id !== id)
-  //     removeFromCart(id) // сохраняем в localStorage
-  //     return updated
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   if (typeof window === "undefined") return
-
-  //   const cart = getCart() // просто чистая функция, не setState внутри
-  //   setProducts(cart)
-  // }, [])
-
-  // Обновление количества
-  const handleQuantityChange = (productId: string, newQty: number) => {
-    setProducts((prev) => {
-      const updated = prev.map((p) =>
-        p.id === productId ? { ...p, qty: newQty } : p
-      )
-      saveCart(updated) // синхронизируем localStorage
-      return updated
-    })
+  const handleQuantityChange = (productId: number, newQty: number) => {
+    const updated = products.map((p) =>
+      p.id === productId ? { ...p, qty: newQty } : p
+    )
+    setProducts(updated)
+    saveCart(updated)
   }
 
-  // Удаление
-  const removeCart = (productId: string) => {
-    setProducts((prev) => {
-      const updated = prev.filter((p) => p.id !== productId)
-      saveCart(updated)
-      return updated
-    })
+  const removeCart = (productId: number) => {
+    const updated = products.filter((p) => p.id !== productId)
+    setProducts(updated)
+    saveCart(updated)
   }
+
+  if (!mounted) return null
 
   return (
-    <section className={style.shoppingBasket}>
+    <div className={style.shoppingBasket}>
       <div className={style.shoppingBasket__container}>
-        <header>
-          <h1 className={style.shoppingBasket__title}>Your shopping cart</h1>
-        </header>
+        <h1 className={style.shoppingBasket__title}>Your shopping cart</h1>
 
-        <main>
-          <div className={style.shoppingBasket__header}>
-            <span>Product</span>
-            <span>Quantity</span>
-            <span>Total</span>
-          </div>
+        <div className={style.shoppingBasket__header}>
+          <span>Product</span>
+          <span>Quantity</span>
+          <span>Total</span>
+        </div>
 
-          <hr className={style.shoppingBasket__divider} />
+        <hr className={style.shoppingBasket__divider} />
 
-          <div className={style.shoppingBasket__products}>
-            {products.map((product) => {
+        <div className={style.shoppingBasket__products}>
+          {products.length === 0 && <div>The cart is empty.</div>}
+          {products.length > 0 &&
+            [...products].reverse().map((product) => {
               const total = product.price * product.qty
 
               return (
-                <div key={product.id} className={style.shoppingBasket__product}>
-                  <Link
-                    className={style.shoppingBasket__productInfo}
-                    href={`/product/${product.id}`}
-                  >
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      className={style.shoppingBasket__productImage}
-                      width={109}
-                      height={134}
-                    />
-                    <div className={style.shoppingBasket__productDetails}>
-                      <h3 className={style.shoppingBasket__productName}>
-                        {product.name}
-                      </h3>
-                      <div className={style.shoppingBasket__productDescription}>
-                        <div>{product.title}</div>
-                        <div>{product.description}</div>
-                        {/* {product.description.split("\n").map((line, index) => (
-                          <>
-                          
-                            {line}
-                            {index <
-                              product.description.split("\n").length - 1 && (
-                              <br />
-                            )}
-                          </>
-                        ))} */}
-                      </div>
-                      <p className={style.shoppingBasket__productPrice}>
-                        £{product.price}
-                      </p>
-                    </div>
-                  </Link>
-                  {/* <div className={style.shoppingBasket__productControls}> */}
-                  <div className={style.shoppingBasket__stepper}>
-                    <button
-                      className={style.shoppingBasket__stepperButton}
-                      onClick={() => handleDecrease(product.id, product.qty)}
-                      aria-label="Decrease quantity"
-                    >
-                      -
-                    </button>
-                    <span className={style.shoppingBasket__stepperValue}>
-                      {product.qty}
-                    </span>
-                    <button
-                      className={style.shoppingBasket__stepperButton}
-                      onClick={() => handleIncrease(product.id, product.qty)}
-                      aria-label="Increase quantity"
-                    >
-                      +
-                    </button>
-                  </div>
-                  <p className={style.shoppingBasket__productTotal}>£{total}</p>
-                  <div onClick={() => removeCart(product.id)}>X</div>
-                  {/* </div> */}
-                </div>
+                <ProductItem
+                  key={product.id}
+                  product={product}
+                  total={total}
+                  handleDecrease={handleDecrease}
+                  handleIncrease={handleIncrease}
+                  removeCart={removeCart}
+                />
               )
             })}
-          </div>
+        </div>
 
-          <hr className={style.shoppingBasket__divider} />
+        <hr className={style.shoppingBasket__divider} />
 
-          <div className={style.shoppingBasket__summary}>
-            <div className={style.shoppingBasket__summaryPricing}>
-              <div className={style.shoppingBasket__summarySubtotal}>
-                <span className={style.shoppingBasket__summarySubtotalLabel}>
-                  Subtotal
-                </span>
-                <span className={style.shoppingBasket__summarySubtotalAmount}>
-                  £{subtotal}
-                </span>
-              </div>
-              <p className={style.shoppingBasket__summaryNote}>
-                Taxes and shipping are calculated at checkout
-              </p>
+        <div className={style.shoppingBasket__summary}>
+          <div className={style.shoppingBasket__summaryPricing}>
+            <div className={style.shoppingBasket__summarySubtotal}>
+              <span className={style.shoppingBasket__summarySubtotalLabel}>
+                Subtotal
+              </span>
+              <span className={style.shoppingBasket__summarySubtotalAmount}>
+                £{subtotal}
+              </span>
             </div>
-            <button
-              className={style.shoppingBasket__checkoutButton}
-              onClick={handleCheckout}
-            >
-              <span>Go to checkout</span>
-            </button>
+            <p className={style.shoppingBasket__summaryNote}>
+              Taxes and shipping are calculated at checkout
+            </p>
           </div>
-        </main>
+          <button
+            className={style.shoppingBasket__checkoutButton}
+            onClick={handleCheckout}
+          >
+            <span>Go to checkout</span>
+          </button>
+        </div>
       </div>
-    </section>
+    </div>
+  )
+}
+
+const ProductItem = ({
+  product,
+  total,
+  handleDecrease,
+  handleIncrease,
+  removeCart,
+}: {
+  product: Product
+  total: number
+  handleDecrease: (id: number, qty: number) => void
+  handleIncrease: (id: number, qty: number) => void
+  removeCart: (id: number) => void
+}) => {
+  return (
+    <div key={product.id} className={style.productItem}>
+      <Link className={style.productItem__info} href={`/product/${product.id}`}>
+        <Image
+          src={product.image}
+          alt={product.title}
+          className={style.productItem__image}
+          width={109}
+          height={134}
+        />
+        <div className={style.productIte__details}>
+          <h3 className={style.productItem__name}>{product.title}</h3>
+          <div className={style.productItem__description}>
+            {product.description}
+          </div>
+          <p className={style.productItem__price}>£{product.price}</p>
+        </div>
+      </Link>
+      <div className={style.productItem__stepper}>
+        <button
+          className={style.productItem__button}
+          onClick={() => handleDecrease(product.id, product.qty)}
+          aria-label="Decrease quantity"
+        >
+          -
+        </button>
+        <span className={style.productItem__value}>{product.qty}</span>
+        <button
+          className={style.productItem__button}
+          onClick={() => handleIncrease(product.id, product.qty)}
+          aria-label="Increase quantity"
+        >
+          +
+        </button>
+      </div>
+      <p className={style.productItem__total}>£{total}</p>
+      <button
+        aria-label="Remove from cart"
+        onClick={() => removeCart(product.id)}
+        className={`${style.productItem__remove} noSelect`}
+      >
+        X
+      </button>
+    </div>
   )
 }

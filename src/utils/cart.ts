@@ -1,14 +1,20 @@
+import { Product } from "@/components/Cart/ShoppingBasket"
+import { CatalogItemBdType } from "@/data/catalogBD"
+
 const CART_KEY = "cart"
 
 export const getCart = () => {
   return JSON.parse(localStorage.getItem(CART_KEY) || "[]")
 }
 
-export const saveCart = (cart) => {
+export const saveCart = (cart: Product[]) => {
   localStorage.setItem(CART_KEY, JSON.stringify(cart))
 }
 
-export const mapProductToCartItem = (product, qty) => ({
+export const mapProductToCartItem = (
+  product: CatalogItemBdType,
+  qty: number
+) => ({
   id: product.id,
   title: product.title,
   description: product.description,
@@ -17,11 +23,11 @@ export const mapProductToCartItem = (product, qty) => ({
   qty,
 })
 
-export const addToCart = (product, qty = 1) => {
+export const addToCart = (product: Product, qty = 1) => {
   console.log("qty", qty)
   const cart = getCart()
 
-  const existing = cart.find((item) => item.id === product.id)
+  const existing = cart.find((item: Product) => item.id === product.id)
 
   if (existing) {
     existing.qty += qty
@@ -32,13 +38,13 @@ export const addToCart = (product, qty = 1) => {
   saveCart(cart)
 }
 
-export const removeFromCart = (id) => {
-  const cart = getCart().filter((item) => item.id !== id)
+export const removeFromCart = (id: number) => {
+  const cart = getCart().filter((item: Product) => item.id !== id)
   saveCart(cart)
 }
 
-export const updateQty = (id, qty) => {
-  const cart = getCart().map((item) =>
+export const updateQty = (id: number, qty: number) => {
+  const cart = getCart().map((item: Product) =>
     item.id === id ? { ...item, qty } : item
   )
 

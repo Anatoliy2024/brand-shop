@@ -1,3 +1,17 @@
+export type CatalogItemBdType = {
+  id: number
+  title: string
+  description: string
+  image: string
+  category: string
+  price: number
+  brand: string
+  creationDate: Date
+  advantages: string[]
+  dimensions: { Height: number; Width: number; Depth: number }
+}
+export type CatalogBdType = CatalogItemBdType[]
+
 export const catalogBd = [
   {
     id: 1,
@@ -1402,16 +1416,3 @@ export const catalogBd = [
     },
   },
 ]
-
-export type CatalogBdType = {
-  id: number
-  title: string
-  description: string
-  image: string
-  category: string
-  price: number
-  brand: string
-  creationDate: Date
-  advantages: string[]
-  dimensions: { Height: number; Width: number; Depth: number }
-}[]
