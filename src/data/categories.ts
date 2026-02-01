@@ -1,21 +1,18 @@
 export const categories = [
-  { text: "Plant pots", link: "#", id: "plant-pots" },
-  { text: "Ceramics", link: "#", id: "ceramics" },
-  { text: "Tables", link: "#", id: "table" },
-  { text: "Chairs", link: "#", id: "chair" },
-  { text: "Tableware", link: "#", id: "tableware" },
-  { text: "Art", link: "#", id: "art" },
-  { text: "Cutlery", link: "#", id: "cutlery" },
-  { text: "Lamp", link: "#", id: "lamp" },
+  {
+    text: "Plant pots",
+    link: "/catalog?category=plant-pots",
+    id: "plant-pots",
+  },
+  { text: "Ceramics", link: "/catalog?category=ceramics", id: "ceramics" },
+  { text: "Tables", link: "/catalog?category=table", id: "table" },
+  { text: "Chairs", link: "/catalog?category=chair", id: "chair" },
+  { text: "Tableware", link: "/catalog?category=tableware", id: "tableware" },
+  { text: "Art", link: "/catalog?category=art", id: "art" },
+  { text: "Cutlery", link: "/catalog?category=cutlery", id: "cutlery" },
+  { text: "Lamp", link: "/catalog?category=lamp", id: "lamp" },
 ]
 
-// export const productOption = [
-//   { text: "Furniture", id: "Furniture" },
-//   { text: "Homeware", id: "Homeware" },
-//   { text: "Sofas", id: "Sofas" },
-//   { text: "Light fittings", id: "Light-fittings" },
-//   { text: "Accessories", id: "Accessories" },
-// ]
 export const priceOption = [
   { text: "0 - 100", id: "one-hundred", min: 0, max: 100 },
   { text: "101 - 250", id: "two-hundred-fifty", min: 101, max: 250 },

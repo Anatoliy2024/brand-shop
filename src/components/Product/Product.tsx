@@ -16,7 +16,7 @@ export default function Product({ id }: { id: number }) {
   if (!product) return
 
   const addCart = () => {
-    console.log("quantity", quantity)
+    // console.log("quantity", quantity)
 
     addToCart(mapProductToCartItem(product, quantity), quantity)
   }
@@ -32,6 +32,7 @@ export default function Product({ id }: { id: number }) {
               width={607}
               height={661}
               alt={product.title}
+              priority
             />
             {/* <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/24dbbce02a6d77e1a06044d652ece6cad61ad345?width=1214"

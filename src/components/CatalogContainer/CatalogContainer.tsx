@@ -18,7 +18,7 @@ export function CatalogContainer() {
   }
 
   const sort = searchParams.get("sort") || "Date added"
-  console.log("sort", sort)
+  // console.log("sort", sort)
   // const catalogItems = catalogBd
 
   const catalogItems = catalogBd.filter((item) => {

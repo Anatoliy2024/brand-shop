@@ -1,9 +1,12 @@
-import { Collection } from "@/components/Collection/Collection"
+"use client"
+// import { Collection } from "@/components/Collection/Collection"
 import { Different } from "@/components/Different/Different"
 import { InvitationTwo } from "@/components/InvitationTwo/InvitationTwo"
 import Product from "@/components/Product/Product"
 import InnerApp from "@/providers/InnerApp"
 import React, { Suspense } from "react"
+import dynamic from "next/dynamic"
+import { CollectionDynamic } from "@/components/Collection/CollectionDynamic"
 
 export default function Catalog({
   params,
@@ -17,9 +20,9 @@ export default function Catalog({
     <InnerApp>
       <Suspense fallback={null}>
         <Product id={Number(id)} />
-        <Collection>
+        <CollectionDynamic>
           <h3>You might also love these</h3>
-        </Collection>
+        </CollectionDynamic>
         <Different />
         <InvitationTwo />
       </Suspense>

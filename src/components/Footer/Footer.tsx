@@ -22,7 +22,7 @@ export function Footer() {
     { text: "Best sellers", link: "#" },
     { text: "Recently viewed", link: "#" },
     { text: "Popular this week", link: "#" },
-    { text: "All products", link: "#" },
+    { text: "All products", link: "/catalog" },
   ]
   const ourCompanyList = [
     { text: "About us", link: "#" },

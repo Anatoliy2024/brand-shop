@@ -15,14 +15,14 @@ export interface Product {
   qty: number
 }
 
-export default function ShoppingBasket() {
-  const [products, setProducts] = useState<Product[]>([])
-  const [mounted, setMounted] = useState(false)
+export function ShoppingBasket() {
+  const [products, setProducts] = useState<Product[]>(getCart())
+  // const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-    setProducts(getCart())
-  }, [])
+  // useEffect(() => {
+  //   setMounted(true)
+  //   setProducts(getCart())
+  // }, [])
 
   const handleDecrease = (productId: number, currentQuantity: number) => {
     if (currentQuantity > 1) {
@@ -57,7 +57,7 @@ export default function ShoppingBasket() {
     saveCart(updated)
   }
 
-  if (!mounted) return null
+  // if (!mounted) return null
 
   return (
     <div className={style.shoppingBasket}>
@@ -135,13 +135,16 @@ const ProductItem = ({
   return (
     <div key={product.id} className={style.productItem}>
       <Link className={style.productItem__info} href={`/product/${product.id}`}>
-        <Image
-          src={product.image}
-          alt={product.title}
-          className={style.productItem__image}
-          width={109}
-          height={134}
-        />
+        <div className={style.productItem__imageWrapper}>
+          <Image
+            src={product.image}
+            alt={product.title}
+            className={style.productItem__image}
+            // fill
+            width={109}
+            height={134}
+          />
+        </div>
         <div className={style.productIte__details}>
           <h3 className={style.productItem__name}>{product.title}</h3>
           <div className={style.productItem__description}>

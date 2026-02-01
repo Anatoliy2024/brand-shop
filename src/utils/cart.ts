@@ -1,4 +1,4 @@
-import { Product } from "@/components/Cart/ShoppingBasket"
+import { Product } from "@/components/ShoppingBasket/ShoppingBasket"
 import { CatalogItemBdType } from "@/data/catalogBD"
 
 const CART_KEY = "cart"
@@ -24,7 +24,7 @@ export const mapProductToCartItem = (
 })
 
 export const addToCart = (product: Product, qty = 1) => {
-  console.log("qty", qty)
+  // console.log("qty", qty)
   const cart = getCart()
 
   const existing = cart.find((item: Product) => item.id === product.id)
