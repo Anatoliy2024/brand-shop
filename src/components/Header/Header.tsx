@@ -1,5 +1,5 @@
 "use client"
-import { SearchIcon } from "@/assets/svg/SearchIcon"
+
 import style from "./Header.module.scss"
 import { ShoppingCardIcon } from "@/assets/svg/ShoppingCardIcon"
 import { UserAvatarIcon } from "@/assets/svg/UserAvatarIcon"
@@ -47,12 +47,6 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
   return (
     <div className={style.Header}>
       <div className={style.Header__top}>
-        {/* <div className={style.Header__searchBlock}>
-          <div aria-label="search" className={style.Header__iconWrapper}>
-            <SearchIcon />
-          </div>
-        </div> */}
-
         <Link href="/" className={style.Header__logo}>
           Avion
         </Link>

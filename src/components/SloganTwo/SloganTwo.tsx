@@ -11,14 +11,7 @@ export function SloganTwo() {
           studio in South London in early 2014"
         type="SloganTwo"
       />
-      {/* <div className={style.SloganTwo__content}>
-        <h2>It started with a small idea</h2>
-        <div className={style.SloganTwo__text}>
-          A global brand with local beginnings, our story begain in a small
-          studio in South London in early 2014
-        </div>
-        <button>View collection</button>
-      </div> */}
+
       <div className={style.SloganTwo__ImageWrapper}>
         <Image
           src="/img/interior-2.png"

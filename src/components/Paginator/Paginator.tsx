@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+
 import style from "./Paginator.module.scss"
 export const Paginator = ({
   totalItems,
@@ -12,14 +12,7 @@ export const Paginator = ({
   currentPage: number
   onPageChange: (num: number) => void
 }) => {
-  // const [currentPage, setCurrentPage] = useState(1)
-
   const totalPages = Math.ceil(totalItems / itemsPerPage)
-
-  // const handleClick = (page: number) => {
-  //   setCurrentPage(page)
-  //   onPageChange(page)
-  // }
 
   return (
     <div className={style.pagination}>

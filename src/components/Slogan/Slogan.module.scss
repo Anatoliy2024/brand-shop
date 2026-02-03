@@ -1,33 +1,23 @@
 .Slogan {
-  // max-width: 100%;
   .Slogan__imageWrapper {
     display: none;
     @media (max-width: 500px) {
       display: block;
-
-      // min-width: 100%;
     }
   }
 
   .Slogan__contentWrapper {
     padding: 130px 80px;
 
-    // background: url("/img/interior-1.jpg");
-    // background-size: cover;
-
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     @media (max-width: 800px) {
       padding: 70px 40px;
-
-      // padding: 0;
     }
     @media (max-width: 500px) {
       background: none !important;
       padding: 0;
-
-      // min-width: 100%;
     }
   }
 }

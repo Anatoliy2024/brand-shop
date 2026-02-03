@@ -17,13 +17,7 @@ export function Footer() {
     TwitterIcon,
     PinterestIcon,
   ]
-  // const menuList = [
-  //   { text: "New arrivals", link: "/catalog?discover=new-arrivals" },
-  //   { text: "Best sellers", link: "/catalog?discover=best-sellers" },
-  //   { text: "Recently viewed", link: "/catalog?discover=recently-viewed" },
-  //   { text: "Popular this week", link: "/catalog?discover=popular-this-week" },
-  //   { text: "All products", link: "/catalog" },
-  // ]
+
   const ourCompanyList = [
     { text: "About us", link: "/about-us" },
     { text: "Vacancies", link: "/vacancies" },

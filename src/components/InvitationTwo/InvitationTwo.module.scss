@@ -63,12 +63,8 @@
 
   &__form {
     display: flex;
-    // flex-direction: column;
-    gap: 0;
 
-    // @media (min-width: 640px) {
-    //   flex-direction: row;
-    // }
+    gap: 0;
   }
 
   &__input {
@@ -85,16 +81,11 @@
       color: var(--color-text-black);
       opacity: 0.2;
     }
-
-    // &:focus {
-    //   outline: none;
-    //   border: 2px solid #2a254b;
-    // }
   }
 
   &__button {
     background-color: var(--color-text-black);
-    // background-color: #2a254b;
+
     color: #fff;
     padding: 16px 32px;
     font-family: var(--font-satoshi), sans-serif;

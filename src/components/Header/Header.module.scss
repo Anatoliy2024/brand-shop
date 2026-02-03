@@ -1,8 +1,6 @@
 $widthMobile: 550px;
 
 .Header {
-  // flex: 0 1 auto;
-  // max-height: 132px;
   .Header__top {
     display: flex;
     justify-content: space-between;
@@ -11,20 +9,16 @@ $widthMobile: 550px;
     font-size: var(--fs-lg-m);
     color: var(--color-text-black-two);
 
-    // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
     .Header__searchBlock {
       display: flex;
       align-items: center;
       gap: 20px;
 
       @media (max-width: $widthMobile) {
-        // order: 2;
       }
     }
     .Header__logo {
       @media (max-width: $widthMobile) {
-        // order: 1;
       }
     }
     .Header__userInfo {
@@ -56,13 +50,13 @@ $widthMobile: 550px;
           top: 0px;
         }
         span:nth-child(2) {
-          top: 5px; // середина блока
+          top: 5px;
         }
         span:nth-child(3) {
           top: 10px;
         }
       }
-      // открытое меню
+
       .Header__hamburgerOpen span:nth-child(1) {
         top: 5px;
         transform: rotate(45deg);
@@ -79,20 +73,14 @@ $widthMobile: 550px;
     }
     .Header__userInfoHidden {
       display: none;
-      // order: 4;
     }
   }
-  // .Header__topRevers {
-  //   @media (max-width: $widthMobile) {
-  //     // flex-direction: row-reverse;
-  //   }
-  // }
 
   .Header__separator {
-    width: 95%; /* ширина линии */
-    margin: 0 auto; /* автоматически добавляет одинаковые отступы слева и справа */
-    border: none; /* убираем стандартную рамку */
-    border-top: 1px solid rgba(0, 0, 0, 0.1); /* создаём линию */
+    width: 95%;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     @media (max-width: $widthMobile) {
       display: none;
     }
@@ -115,35 +103,25 @@ $widthMobile: 550px;
       top: 0;
       flex-direction: column;
       justify-content: flex-start;
-      // overflow: auto;
-      // gap: 0;
-      // flex-wrap: nowrap;
-      // top: 85px;
-      // left: 0;
+
       width: 150px;
       height: 100%;
-      // // background: var(--color-gradient);
+
       background-color: rgba(0, 0, 0, 0.8);
       color: var(--color-text-white);
-      // border-top-right-radius: 20px;
-      // // background-color: #333;
+
       z-index: 1000;
       box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
       overflow-y: auto;
       li {
-        // width: 100%;
         text-align: center;
       }
-      // a {
-      //   padding: 20px;
-      //   min-width: calc(100% - 40px);
-      // }
     }
   }
   .overlay {
     position: fixed;
-    z-index: 999; // меньше чем navbar
+    z-index: 999;
     top: 0;
     left: 0;
     width: 100vw;
@@ -157,21 +135,18 @@ $widthMobile: 550px;
     }
   }
 
-  // .searchBlock__iconWrapper,
   .Header__iconWrapper,
   .Header__categoryItem {
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
-    // background-color: transparent;
+
     transition: background-color 0.3s ease;
     &:hover {
-      // transform: scale(1.3);
       background: var(--color-text-grey);
       color: white;
     }
     &:active {
-      // transform: scale(1.3);
       background: var(--color-text-black);
       color: white;
     }

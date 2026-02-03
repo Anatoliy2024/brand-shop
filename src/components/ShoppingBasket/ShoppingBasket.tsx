@@ -3,7 +3,7 @@
 import style from "./ShoppingBasket.module.scss"
 import Image from "next/image"
 import { getCart, saveCart } from "@/utils/cart"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 
 export interface Product {
@@ -17,12 +17,6 @@ export interface Product {
 
 export function ShoppingBasket() {
   const [products, setProducts] = useState<Product[]>(getCart())
-  // const [mounted, setMounted] = useState(false)
-
-  // useEffect(() => {
-  //   setMounted(true)
-  //   setProducts(getCart())
-  // }, [])
 
   const handleDecrease = (productId: number, currentQuantity: number) => {
     if (currentQuantity > 1) {
@@ -189,65 +183,3 @@ const ProductItem = ({
     </div>
   )
 }
-// const ProductItem = ({
-//   product,
-//   total,
-//   handleDecrease,
-//   handleIncrease,
-//   removeCart,
-// }: {
-//   product: Product
-//   total: number
-//   handleDecrease: (id: number, qty: number) => void
-//   handleIncrease: (id: number, qty: number) => void
-//   removeCart: (id: number) => void
-// }) => {
-//   return (
-//     <div key={product.id} className={style.productItem}>
-//       <Link className={style.productItem__info} href={`/product/${product.id}`}>
-//         <div className={style.productItem__imageWrapper}>
-//           <Image
-//             src={product.image}
-//             alt={product.title}
-//             className={style.productItem__image}
-//             // fill
-//             width={109}
-//             height={134}
-//           />
-//         </div>
-//         <div className={style.productIte__details}>
-//           <h3 className={style.productItem__name}>{product.title}</h3>
-//           <div className={style.productItem__description}>
-//             {product.description}
-//           </div>
-//           <p className={style.productItem__price}>£{product.price}</p>
-//         </div>
-//       </Link>
-//       <div className={style.productItem__stepper}>
-//         <button
-//           className={style.productItem__button}
-//           onClick={() => handleDecrease(product.id, product.qty)}
-//           aria-label="Decrease quantity"
-//         >
-//           -
-//         </button>
-//         <span className={style.productItem__value}>{product.qty}</span>
-//         <button
-//           className={style.productItem__button}
-//           onClick={() => handleIncrease(product.id, product.qty)}
-//           aria-label="Increase quantity"
-//         >
-//           +
-//         </button>
-//       </div>
-//       <p className={style.productItem__total}>£{total}</p>
-//       <button
-//         aria-label="Remove from cart"
-//         onClick={() => removeCart(product.id)}
-//         className={`${style.productItem__remove} noSelect`}
-//       >
-//         X
-//       </button>
-//     </div>
-//   )
-// }

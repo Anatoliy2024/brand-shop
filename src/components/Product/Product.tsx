@@ -16,8 +16,6 @@ export default function Product({ id }: { id: number }) {
   if (!product) return
 
   const addCart = () => {
-    // console.log("quantity", quantity)
-
     addToCart(mapProductToCartItem(product, quantity), quantity)
   }
 
@@ -25,7 +23,6 @@ export default function Product({ id }: { id: number }) {
     <div className={styles.product}>
       <div className={styles.product__container}>
         <div className={styles.product__grid}>
-          {/* Image */}
           <div className={styles.product__imageWrapper}>
             <Image
               src={product.image}
@@ -34,16 +31,9 @@ export default function Product({ id }: { id: number }) {
               alt={product.title}
               priority
             />
-            {/* <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/24dbbce02a6d77e1a06044d652ece6cad61ad345?width=1214"
-              alt="The Dandy Chair"
-              // className={styles.product__image}
-            /> */}
           </div>
 
-          {/* Content */}
           <div className={styles.product__content}>
-            {/* Title & price */}
             <div className={styles.product__header}>
               <h1 className={styles.product__title}>{product.title}</h1>
               <p className={styles.product__price}>£{product.price}</p>
@@ -51,7 +41,6 @@ export default function Product({ id }: { id: number }) {
 
             <div className={styles.product__divider} />
 
-            {/* Description */}
             <div className={styles.product__section}>
               <h2 className={styles.product__sectionTitle}>
                 Product description
@@ -59,7 +48,6 @@ export default function Product({ id }: { id: number }) {
               <p className={styles.product__text}>{product.description}</p>
             </div>
 
-            {/* Dimensions */}
             <div className={styles.product__section}>
               <h2 className={styles.product__sectionTitle}>Dimensions</h2>
 
@@ -91,7 +79,6 @@ export default function Product({ id }: { id: number }) {
               </div>
             </div>
 
-            {/* Quantity */}
             <div className={styles.product__section}>
               <h2 className={styles.product__sectionTitle}>Quantity</h2>
 
@@ -121,7 +108,6 @@ export default function Product({ id }: { id: number }) {
               </div>
             </div>
 
-            {/* Buttons */}
             <div className={styles.product__buttons}>
               <button
                 className={styles.product__addBtn}

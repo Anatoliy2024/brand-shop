@@ -9,7 +9,6 @@ export const InvitationTwo: React.FC = () => {
   return (
     <div className={styles.join}>
       <div className={styles.join__grid}>
-        {/* Image */}
         <div className={styles.join__imageWrapper}>
           <Image
             src="/img/interior-4.png"
@@ -17,11 +16,6 @@ export const InvitationTwo: React.FC = () => {
             height={521}
             alt="/interior-4.png"
           />
-          {/* <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/2cbf591338280a3fa3c36b56d4bb802c8184e23b?width=1440"
-            alt="Modern interior"
-            className={styles.join__image}
-          /> */}
         </div>
 
         {/* Content */}

@@ -1,4 +1,3 @@
-import Link from "next/link"
 import style from "./SloganContentText.module.scss"
 import { ButtonUi } from "@/ui/button-ui/ButtonUi"
 export function SloganContentText({
@@ -19,9 +18,6 @@ export function SloganContentText({
       <h2>{title}</h2>
       <div className={style.SloganContent__text}>{text}</div>
       <ButtonUi className={type} />
-      {/* <button>
-        <Link href="catalog">View collection</Link>
-      </button> */}
     </div>
   )
 }

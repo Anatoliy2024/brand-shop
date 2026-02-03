@@ -5,12 +5,10 @@ import { SloganContentText } from "../SloganContentText/SloganContentText"
 
 const image = "/img/interior-1.jpg"
 export function Slogan() {
-  // return <div>Header</div>
   return (
     <div className={style.Slogan}>
       <div
         className={style.Slogan__contentWrapper}
-        // data-image={image}
         style={{ backgroundImage: `url(${image})` }}
       >
         <SloganContentText
@@ -20,13 +18,7 @@ export function Slogan() {
         />
       </div>
       <div className={style.Slogan__imageWrapper}>
-        <Image
-          src={image}
-          // src="/img/interior-1.jpg"
-          width={500}
-          height={500}
-          alt="interior"
-        />
+        <Image src={image} width={500} height={500} alt="interior" />
       </div>
     </div>
   )

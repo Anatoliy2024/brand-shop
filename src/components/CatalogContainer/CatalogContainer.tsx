@@ -16,21 +16,14 @@ export function CatalogContainer() {
     category: searchParams.get("category")?.split(",") || [],
     brand: searchParams.get("brand")?.split(",") || [],
     price: searchParams.get("price") || null,
-    // price: searchParams.get("price")?.split(",") || [],
+
     page: Number(searchParams.get("page")) || 1,
     discover: searchParams.get("discover") as DiscoverType | null,
   }
 
   const page = Number(searchParams.get("page")) || 1
 
-  // | "new-arrivals"
-  // | "best-sellers"
-  // | "recently-viewed"
-  // | "popular-this-week"
-
   const sort = searchParams.get("sort") || "Date added"
-  // console.log("sort", sort)
-  // const catalogItems = catalogBd
 
   const catalogItems = catalogBd.filter((item) => {
     if (filters.discover && filters.discover !== item.discover) {
@@ -106,14 +99,6 @@ export function CatalogContainer() {
     router.push(`/catalog?${params.toString()}`, { scroll: false })
   }
 
-  // const showProduct = (value: number) => {
-  //   // const params = new URLSearchParams(searchParams.toString())
-  //   // params.set("sort", value)
-
-  //   // params.set("page", "1")
-  //   router.push(`/product/${value}`, { scroll: false })
-  // }
-
   const resetFilter = () => {
     router.push(`/catalog`, { scroll: false })
   }
@@ -126,24 +111,19 @@ export function CatalogContainer() {
 
   const start = (page - 1) * ITEMS_PER_PAGE
   const end = start + ITEMS_PER_PAGE
-  // const catalog = sortCatalog(catalogItems)
 
   const currentItems = sortCatalog(catalogItems).slice(start, end)
 
   return (
     <>
       <CatalogOption
-        // searchParams={searchParams}
         filters={filters}
         onChange={setFilter}
         sort={sort}
         setSort={setSort}
         resetFilter={resetFilter}
       />
-      <CatalogProduct
-        catalogItems={currentItems}
-        // showProduct={showProduct}
-      />
+      <CatalogProduct catalogItems={currentItems} />
       <Paginator
         totalItems={catalogItems.length}
         currentPage={page}
