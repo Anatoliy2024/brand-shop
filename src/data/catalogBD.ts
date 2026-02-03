@@ -23,7 +23,7 @@ export type CatalogBdType = CatalogItemBdType[]
 // { text: "Recently viewed", link: "/catalog?discover=recently-viewed" },
 // { text: "Popular this week", link: "/catalog?discover=popular-this-week" },
 
-export const catalogBd = [
+export const catalogBd: CatalogBdType = [
   {
     id: 1,
     title: "Soft Breeze",
