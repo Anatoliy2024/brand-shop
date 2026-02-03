@@ -2,8 +2,11 @@
 import { useRouter, useSearchParams } from "next/navigation"
 import { CatalogOption } from "../CatalogOption/CatalogOption"
 import { CatalogProduct } from "../CatalogProduct/CatalogProduct"
-import { catalogBd, CatalogBdType } from "@/data/catalogBD"
+import { catalogBd, CatalogBdType, DiscoverType } from "@/data/catalogBD"
 import { priceOption } from "@/data/categories"
+import { Paginator } from "../Paginator/Paginator"
+
+const ITEMS_PER_PAGE = 12
 
 export function CatalogContainer() {
   const router = useRouter()
@@ -15,24 +18,31 @@ export function CatalogContainer() {
     price: searchParams.get("price") || null,
     // price: searchParams.get("price")?.split(",") || [],
     page: Number(searchParams.get("page")) || 1,
+    discover: searchParams.get("discover") as DiscoverType | null,
   }
+
+  const page = Number(searchParams.get("page")) || 1
+
+  // | "new-arrivals"
+  // | "best-sellers"
+  // | "recently-viewed"
+  // | "popular-this-week"
 
   const sort = searchParams.get("sort") || "Date added"
   // console.log("sort", sort)
   // const catalogItems = catalogBd
 
   const catalogItems = catalogBd.filter((item) => {
-    // console.log("item", item)
-    // console.log("filters", filters)
-    // Категория
+    if (filters.discover && filters.discover !== item.discover) {
+      return false
+    }
+
     if (filters.category.length && !filters.category.includes(item.category))
       return false
 
-    // Бренд
     if (filters.brand.length && !filters.brand.includes(item.brand))
       return false
 
-    // Цена (если фильтр пустой — пропускаем)
     if (filters.price) {
       const range = priceOption.find((el) => el.id === filters.price)
 
@@ -45,24 +55,25 @@ export function CatalogContainer() {
     }
 
     return true
-  })
+  }) as CatalogBdType
 
   const sortCatalog = (catalog: CatalogBdType) => {
+    const sorted = [...catalog]
     if (sort === "Date added") {
-      return catalog.sort(
+      return sorted.sort(
         (a, b) => a.creationDate.getTime() - b.creationDate.getTime()
       )
     } else if (sort === "Descending price") {
-      return catalog.sort((a, b) => b.price - a.price)
+      return sorted.sort((a, b) => b.price - a.price)
     } else if (sort === "Ascending price") {
-      return catalog.sort((a, b) => a.price - b.price)
+      return sorted.sort((a, b) => a.price - b.price)
     }
-    return catalog
+    return sorted
   }
 
   const setFilter = (type: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString())
-    if (type !== "price") {
+    if (type !== "price" && type !== "discover") {
       const current = params.get(type)?.split(",").filter(Boolean) || []
 
       const updated = current.includes(value)
@@ -74,7 +85,7 @@ export function CatalogContainer() {
       } else {
         params.delete(type)
       }
-    } else if (type === "price") {
+    } else if (type === "price" || type === "discover") {
       const current = params.get(type)
       if (current && current === value) {
         params.delete(type)
@@ -107,6 +118,18 @@ export function CatalogContainer() {
     router.push(`/catalog`, { scroll: false })
   }
 
+  const onPageChange = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set("page", String(page))
+    router.push(`/catalog?${params.toString()}`)
+  }
+
+  const start = (page - 1) * ITEMS_PER_PAGE
+  const end = start + ITEMS_PER_PAGE
+  // const catalog = sortCatalog(catalogItems)
+
+  const currentItems = sortCatalog(catalogItems).slice(start, end)
+
   return (
     <>
       <CatalogOption
@@ -118,8 +141,14 @@ export function CatalogContainer() {
         resetFilter={resetFilter}
       />
       <CatalogProduct
-        catalogItems={sortCatalog(catalogItems)}
+        catalogItems={currentItems}
         // showProduct={showProduct}
+      />
+      <Paginator
+        totalItems={catalogItems.length}
+        currentPage={page}
+        itemsPerPage={ITEMS_PER_PAGE}
+        onPageChange={onPageChange}
       />
     </>
   )

@@ -23,20 +23,12 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
       setShowButton(!mediaQuery.matches)
     }
 
-    // const onScroll = () => {
-    //   setScrolled(window.scrollY > 0)
-    // }
-
-    // начальное состояние (УЖЕ НА КЛИЕНТЕ)
     updateMedia()
-    // onScroll()
 
     mediaQuery.addEventListener("change", updateMedia)
-    // window.addEventListener("scroll", onScroll, { passive: true })
 
     return () => {
       mediaQuery.removeEventListener("change", updateMedia)
-      // window.removeEventListener("scroll", onScroll)
     }
   }, [])
 
@@ -59,7 +51,14 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
           <div aria-label="search" className={style.Header__iconWrapper}>
             <SearchIcon />
           </div>
-          {showButton && (
+        </div>
+
+        <Link href="/" className={style.Header__logo}>
+          Avion
+        </Link>
+
+        <div className={style.Header__userInfo}>
+          {showButton && !hiddenCatalog && (
             <div
               onClick={handleShowToggleMenu}
               className={`${style.Header__hamburger} ${
@@ -71,30 +70,21 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
               <span></span>
             </div>
           )}
+          <Link
+            aria-label="Go to shopping basket"
+            className={style.Header__iconWrapper}
+            href={"/shopping-basket"}
+          >
+            <ShoppingCardIcon />
+          </Link>
+          <Link
+            aria-label="Go to profile user"
+            href="/profile"
+            className={style.Header__iconWrapper}
+          >
+            <UserAvatarIcon />
+          </Link>
         </div>
-        {/* <div className={style.Header__logo}>            */}
-        <Link href="/" className={style.Header__logo}>
-          Avion
-        </Link>
-        {/* </div> */}
-        {!showButton && (
-          <div className={style.Header__userInfo}>
-            <Link
-              aria-label="Go to shopping basket"
-              className={style.Header__iconWrapper}
-              href={"/shopping-basket"}
-            >
-              <ShoppingCardIcon />
-            </Link>
-            <Link
-              aria-label="Go to profile user"
-              href="#"
-              className={style.Header__iconWrapper}
-            >
-              <UserAvatarIcon />
-            </Link>
-          </div>
-        )}
       </div>
       <hr className={style.Header__separator} />
       {!hiddenCatalog && (

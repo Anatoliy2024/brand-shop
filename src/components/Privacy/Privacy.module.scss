@@ -1,0 +1,52 @@
+.privacy {
+  background: linear-gradient(
+    to bottom,
+    var(--background-grey) 0%,
+    var(--background-grey) 75%,
+    #ececf3 100%
+  );
+  padding: clamp(20px, 4vw, 50px) 20px;
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+
+    .title {
+      font-family: var(--font-clashDisplay);
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      color: var(--color-text-black);
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .text {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-family: var(--font-satoshi);
+      font-size: var(--fs-md);
+      color: var(--color-text-grey);
+    }
+
+    .content {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+
+      h2 {
+        font-family: var(--font-clashDisplay);
+        font-size: var(--fs-lg);
+        font-weight: 400;
+        color: var(--color-text-black-two);
+      }
+
+      p {
+        font-family: var(--font-satoshi);
+        font-size: var(--fs-md);
+        color: var(--color-text-grey-two);
+        line-height: 1.6;
+      }
+    }
+  }
+}

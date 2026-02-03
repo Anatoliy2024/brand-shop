@@ -18,6 +18,19 @@ $widthMobile: 550px;
       align-items: center;
       gap: 20px;
 
+      @media (max-width: $widthMobile) {
+        // order: 2;
+      }
+    }
+    .Header__logo {
+      @media (max-width: $widthMobile) {
+        // order: 1;
+      }
+    }
+    .Header__userInfo {
+      display: flex;
+      gap: 16px;
+      align-items: center;
       .Header__hamburger {
         width: 12px;
         height: 12px;
@@ -63,21 +76,17 @@ $widthMobile: 550px;
         top: 5px;
         transform: rotate(-45deg);
       }
-      @media (max-width: $widthMobile) {
-        order: 2;
-      }
     }
-    .Header__logo {
-      @media (max-width: $widthMobile) {
-        order: 1;
-      }
-    }
-    .Header__userInfo {
-      display: flex;
-      gap: 16px;
-      align-items: center;
+    .Header__userInfoHidden {
+      display: none;
+      // order: 4;
     }
   }
+  // .Header__topRevers {
+  //   @media (max-width: $widthMobile) {
+  //     // flex-direction: row-reverse;
+  //   }
+  // }
 
   .Header__separator {
     width: 95%; /* ширина линии */

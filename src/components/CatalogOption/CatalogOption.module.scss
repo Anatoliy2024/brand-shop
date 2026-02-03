@@ -44,6 +44,17 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        .Filters__trigger {
+          // gap: 10px;
+          // display: flex;
+          // align-items: center;
+        }
+        .Filters__triggerActive {
+          color: #ff0000b8;
+          span {
+            padding-left: 5px;
+          }
+        }
         //   cursor: pointer;
         svg {
           @include svg;
@@ -90,13 +101,16 @@
     .Sort {
       display: flex;
       align-items: center;
-      position: relative;
+      // position: relative;
       font-family: var(--font-satoshi), sans-serif;
-      padding: 5px;
-      width: 237px;
+      // padding: 5px;
+      min-width: 237px;
       gap: 20px;
       .Sort__wrapper {
         display: flex;
+        position: relative;
+        padding: 5px;
+
         gap: 10px;
         align-items: center;
         svg {
@@ -114,6 +128,7 @@
             input,
             label {
               cursor: pointer;
+              white-space: nowrap;
             }
           }
         }

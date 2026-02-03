@@ -3,10 +3,12 @@ import {
   brandOption,
   categories,
   priceOption,
+  discoverOption,
   // productOption,
 } from "@/data/categories"
 import style from "./CatalogOption.module.scss"
 import { ArrowBottom } from "@/assets/svg/ArrowBottom"
+import { DiscoverType } from "@/data/catalogBD"
 // import {
 //   ReadonlyURLSearchParams,
 //   useRouter,
@@ -27,6 +29,7 @@ export function CatalogOption({
     brand: string[]
     category: string[]
     price: string | null
+    discover: DiscoverType | null
     page: number
   }
   onChange: (type: string, value: string) => void
@@ -90,6 +93,12 @@ export function CatalogOption({
             title="brand"
             option={brandOption}
             selected={filters.brand}
+            onChange={onChange}
+          />
+          <MenuOption
+            title="discover"
+            option={discoverOption.slice(0, 4)}
+            selected={filters.discover}
             onChange={onChange}
           />
           <button onClick={resetFilter}>reset</button>
@@ -167,10 +176,27 @@ function MenuOption({
   // const selected = searchParams.get(title)?.split(",") || []
   // console.log("searchParams.get(title)", searchParams.get(title))
   // console.log("searchParams", searchParams)
+  let count
+  if (selected) {
+    if (Array.isArray(selected)) {
+      if (selected.length > 0) {
+        count = selected.length
+      }
+    } else {
+      count = 1
+    }
+  }
 
   return (
     <div className={`${style.Filters__item} noSelect`}>
-      <button className={style.Filters__trigger}>{title}</button>
+      <button
+        className={`${style.Filters__trigger} ${
+          count ? style.Filters__triggerActive : ""
+        }`}
+      >
+        {title}
+        {count && <span>:{count}</span>}
+      </button>
       <ArrowBottom />
       <ul className={style.Filters__optionsList}>
         {option.map((optionItem) => (

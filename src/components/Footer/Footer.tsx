@@ -1,6 +1,6 @@
 import Link from "next/link"
 import style from "./Footer.module.scss"
-import { categories } from "@/data/categories"
+import { categories, discoverOption } from "@/data/categories"
 import { LinkedinIcon } from "@/assets/svg/LinkedinIcon"
 import { FacebookIcon } from "@/assets/svg/FacebookIcon"
 import { InstagramIcon } from "@/assets/svg/InstagramIcon"
@@ -17,25 +17,25 @@ export function Footer() {
     TwitterIcon,
     PinterestIcon,
   ]
-  const menuList = [
-    { text: "New arrivals", link: "#" },
-    { text: "Best sellers", link: "#" },
-    { text: "Recently viewed", link: "#" },
-    { text: "Popular this week", link: "#" },
-    { text: "All products", link: "/catalog" },
-  ]
+  // const menuList = [
+  //   { text: "New arrivals", link: "/catalog?discover=new-arrivals" },
+  //   { text: "Best sellers", link: "/catalog?discover=best-sellers" },
+  //   { text: "Recently viewed", link: "/catalog?discover=recently-viewed" },
+  //   { text: "Popular this week", link: "/catalog?discover=popular-this-week" },
+  //   { text: "All products", link: "/catalog" },
+  // ]
   const ourCompanyList = [
-    { text: "About us", link: "#" },
-    { text: "Vacancies", link: "#" },
-    { text: "Contact us", link: "#" },
-    { text: "Privacy", link: "#" },
-    { text: "Returns policy", link: "#" },
+    { text: "About us", link: "/about-us" },
+    { text: "Vacancies", link: "/vacancies" },
+    { text: "Contact us", link: "/contact-us" },
+    { text: "Privacy", link: "/privacy" },
+    { text: "Returns policy", link: "/returns-policy" },
   ]
   return (
     <div className={style.Footer}>
       <div className={style.Footer__top}>
         <div className={style.Footer__linksMenu}>
-          <ListItem title="Menu" arrayItem={menuList} />
+          <ListItem title="Menu" arrayItem={discoverOption} />
           <ListItem title="Categories" arrayItem={categories} />
           <ListItem title="Our company" arrayItem={ourCompanyList} />
         </div>

@@ -1,3 +1,8 @@
+export type DiscoverType =
+  | "new-arrivals"
+  | "best-sellers"
+  | "recently-viewed"
+  | "popular-this-week"
 export type CatalogItemBdType = {
   id: number
   title: string
@@ -9,8 +14,14 @@ export type CatalogItemBdType = {
   creationDate: Date
   advantages: string[]
   dimensions: { Height: number; Width: number; Depth: number }
+  discover?: DiscoverType
 }
 export type CatalogBdType = CatalogItemBdType[]
+
+// { text: "New arrivals", link: "/catalog?discover=new-arrivals" },
+// { text: "Best sellers", link: "/catalog?discover=best-sellers" },
+// { text: "Recently viewed", link: "/catalog?discover=recently-viewed" },
+// { text: "Popular this week", link: "/catalog?discover=popular-this-week" },
 
 export const catalogBd = [
   {
@@ -28,6 +39,7 @@ export const catalogBd = [
       "Eco-focused production",
     ],
     dimensions: { Height: 96, Width: 53, Depth: 56 },
+    discover: "new-arrivals",
   },
   {
     id: 2,
@@ -40,6 +52,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-28T14:25:00.000Z"),
     advantages: ["Organic wood", "Durable legs", "Warm tone"],
     dimensions: { Height: 76, Width: 145, Depth: 90 },
+    discover: "best-sellers",
   },
   {
     id: 3,
@@ -52,6 +65,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-07T07:45:00.000Z"),
     advantages: ["Lightweight", "Clean shape", "Eco-friendly material"],
     dimensions: { Height: 11, Width: 12, Depth: 12 },
+    discover: "recently-viewed",
   },
   {
     id: 4,
@@ -68,6 +82,7 @@ export const catalogBd = [
       "Timeless style",
     ],
     dimensions: { Height: 75, Width: 120, Depth: 70 },
+    discover: "recently-viewed",
   },
   {
     id: 5,
@@ -81,6 +96,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-10T11:20:00.000Z"),
     advantages: ["Durable steel", "Smooth polish", "Modern aesthetic"],
     dimensions: { Height: 25, Width: 6, Depth: 4 },
+    discover: "popular-this-week",
   },
   {
     id: 6,
@@ -93,6 +109,7 @@ export const catalogBd = [
     creationDate: new Date("2024-01-18T12:30:00.000Z"),
     advantages: ["Space-saving", "Lightweight build", "Modern lines"],
     dimensions: { Height: 73, Width: 90, Depth: 90 },
+    discover: "best-sellers",
   },
   {
     id: 7,
@@ -105,6 +122,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-05T14:40:00.000Z"),
     advantages: ["Timeless design", "Durable coating", "Eco-friendly texture"],
     dimensions: { Height: 18, Width: 17, Depth: 17 },
+    discover: "recently-viewed",
   },
   {
     id: 8,
@@ -133,6 +151,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-28T11:55:00.000Z"),
     advantages: ["High durability", "Soft ergonomic support", "Natural fabric"],
     dimensions: { Height: 97, Width: 54, Depth: 58 },
+    discover: "best-sellers",
   },
   {
     id: 10,
@@ -145,6 +164,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-29T12:50:00.000Z"),
     advantages: ["Lightweight", "Smooth edges", "Eco-friendly production"],
     dimensions: { Height: 25, Width: 6, Depth: 3 },
+    discover: "new-arrivals",
   },
   {
     id: 11,
@@ -157,6 +177,7 @@ export const catalogBd = [
     creationDate: new Date("2024-05-12T10:00:00.000Z"),
     advantages: ["Soft matte surface", "Durable glaze", "Eco-safe"],
     dimensions: { Height: 12, Width: 13, Depth: 13 },
+    discover: "best-sellers",
   },
   {
     id: 12,
@@ -169,6 +190,7 @@ export const catalogBd = [
     creationDate: new Date("2024-01-22T11:30:00.000Z"),
     advantages: ["Natural look", "Moisture-resistant", "Lightweight build"],
     dimensions: { Height: 15, Width: 15, Depth: 15 },
+    discover: "recently-viewed",
   },
   {
     id: 13,
@@ -205,6 +227,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-06T15:10:00.000Z"),
     advantages: ["Comfortable padding", "Eco-friendly finish", "Durable frame"],
     dimensions: { Height: 91, Width: 46, Depth: 51 },
+    discover: "new-arrivals",
   },
   {
     id: 16,
@@ -229,6 +252,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-14T12:30:00.000Z"),
     advantages: ["Warm light tone", "Energy-efficient", "Smooth matte surface"],
     dimensions: { Height: 40, Width: 18, Depth: 18 },
+    discover: "recently-viewed",
   },
   {
     id: 18,
@@ -265,6 +289,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-04T16:05:00.000Z"),
     advantages: ["Soothing light", "Solid construction", "Energy-friendly LED"],
     dimensions: { Height: 48, Width: 22, Depth: 22 },
+    discover: "recently-viewed",
   },
   {
     id: 21,
@@ -305,6 +330,7 @@ export const catalogBd = [
       "Sustainable steel",
     ],
     dimensions: { Height: 26, Width: 6, Depth: 4 },
+    discover: "new-arrivals",
   },
   {
     id: 24,
@@ -317,6 +343,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-10T11:30:00.000Z"),
     advantages: ["Durable material", "Smooth surface", "Modern aesthetic"],
     dimensions: { Height: 18, Width: 12, Depth: 12 },
+    discover: "recently-viewed",
   },
   {
     id: 25,
@@ -358,6 +385,7 @@ export const catalogBd = [
     creationDate: new Date("2024-04-15T09:15:00.000Z"),
     advantages: ["Premium quality", "Sturdy base", "Soft earthy tone"],
     dimensions: { Height: 22, Width: 22, Depth: 22 },
+    discover: "recently-viewed",
   },
   {
     id: 28,
@@ -398,6 +426,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-18T12:00:00.000Z"),
     advantages: ["Handmade quality", "Eco-glazed surface", "Unique texture"],
     dimensions: { Height: 21, Width: 18, Depth: 18 },
+    discover: "recently-viewed",
   },
   {
     id: 31,
@@ -410,6 +439,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-17T16:40:00.000Z"),
     advantages: ["Premium wood", "Elegant edges", "Durable coating"],
     dimensions: { Height: 78, Width: 170, Depth: 90 },
+    discover: "popular-this-week",
   },
   {
     id: 32,
@@ -422,6 +452,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-01T15:50:00.000Z"),
     advantages: ["Sustainable wood", "Smooth edges", "Modern aesthetic"],
     dimensions: { Height: 78, Width: 130, Depth: 80 },
+    discover: "popular-this-week",
   },
   {
     id: 33,
@@ -434,6 +465,7 @@ export const catalogBd = [
     creationDate: new Date("2024-04-05T09:00:00.000Z"),
     advantages: ["Premium materials", "Durable surface", "Classic look"],
     dimensions: { Height: 76, Width: 140, Depth: 85 },
+    discover: "popular-this-week",
   },
   {
     id: 34,
@@ -470,6 +502,7 @@ export const catalogBd = [
     creationDate: new Date("2024-04-12T08:10:00.000Z"),
     advantages: ["Handmade finish", "Eco-friendly glaze", "Universal style"],
     dimensions: { Height: 20, Width: 19, Depth: 19 },
+    discover: "recently-viewed",
   },
   {
     id: 37,
@@ -482,6 +515,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-02T09:15:00.000Z"),
     advantages: ["Eco-friendly glaze", "Lightweight", "Timeless design"],
     dimensions: { Height: 22, Width: 14, Depth: 14 },
+    discover: "recently-viewed",
   },
   {
     id: 38,
@@ -546,6 +580,7 @@ export const catalogBd = [
       "Durable structure",
     ],
     dimensions: { Height: 20, Width: 13, Depth: 13 },
+    discover: "popular-this-week",
   },
   {
     id: 43,
@@ -558,6 +593,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-18T16:10:00.000Z"),
     advantages: ["Premium glaze", "Eco-friendly firing", "Soft edges"],
     dimensions: { Height: 24, Width: 15, Depth: 15 },
+    discover: "popular-this-week",
   },
   {
     id: 44,
@@ -570,6 +606,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-21T14:10:00.000Z"),
     advantages: ["Scratch-resistant", "Timeless design", "Easy to clean"],
     dimensions: { Height: 4, Width: 20, Depth: 20 },
+    discover: "popular-this-week",
   },
   {
     id: 45,
@@ -582,6 +619,7 @@ export const catalogBd = [
     creationDate: new Date("2024-05-10T09:55:00.000Z"),
     advantages: ["Durable build", "Soft edges", "Modern profile"],
     dimensions: { Height: 2, Width: 24, Depth: 24 },
+    discover: "popular-this-week",
   },
   {
     id: 46,
@@ -594,6 +632,7 @@ export const catalogBd = [
     creationDate: new Date("2024-02-27T15:45:00.000Z"),
     advantages: ["Comfortable to hold", "Eco-crafted", "Unique handmade look"],
     dimensions: { Height: 11, Width: 10, Depth: 10 },
+    discover: "popular-this-week",
   },
   {
     id: 47,
@@ -606,6 +645,7 @@ export const catalogBd = [
     creationDate: new Date("2024-01-30T13:30:00.000Z"),
     advantages: ["Moisture-resistant", "Smooth matte surface", "Long-lasting"],
     dimensions: { Height: 2, Width: 25, Depth: 25 },
+    discover: "new-arrivals",
   },
   {
     id: 48,
@@ -618,6 +658,7 @@ export const catalogBd = [
     creationDate: new Date("2024-04-22T10:10:00.000Z"),
     advantages: ["Clean silhouette", "Durable ceramic", "Eco-friendly glaze"],
     dimensions: { Height: 6, Width: 18, Depth: 18 },
+    discover: "popular-this-week",
   },
   {
     id: 49,
@@ -654,6 +695,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-11T13:50:00.000Z"),
     advantages: ["Soft glow", "Energy-saving", "Lightweight"],
     dimensions: { Height: 42, Width: 18, Depth: 18 },
+    discover: "new-arrivals",
   },
   {
     id: 52,
@@ -683,6 +725,7 @@ export const catalogBd = [
       "Premium construction",
     ],
     dimensions: { Height: 52, Width: 23, Depth: 23 },
+    discover: "new-arrivals",
   },
   {
     id: 54,
@@ -695,6 +738,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-30T12:55:00.000Z"),
     advantages: ["Soft-touch surface", "Eco-friendly assembly", "Gentle image"],
     dimensions: { Height: 41, Width: 18, Depth: 18 },
+    discover: "new-arrivals",
   },
   {
     id: 55,
@@ -728,6 +772,7 @@ export const catalogBd = [
       Width: 55,
       Depth: 55,
     },
+    discover: "new-arrivals",
   },
 
   {
@@ -797,6 +842,7 @@ export const catalogBd = [
       "Eco-conscious production",
     ],
     dimensions: { Height: 22, Width: 14, Depth: 14 },
+    discover: "new-arrivals",
   },
   {
     id: 62,
@@ -825,6 +871,7 @@ export const catalogBd = [
       "Scratch-resistant surface",
     ],
     dimensions: { Height: 78, Width: 160, Depth: 85 },
+    discover: "new-arrivals",
   },
   {
     id: 64,
@@ -861,6 +908,7 @@ export const catalogBd = [
     creationDate: new Date("2024-05-02T09:55:00.000Z"),
     advantages: ["Sturdy support", "Smooth finish", "Unique shape"],
     dimensions: { Height: 72, Width: 95, Depth: 95 },
+    discover: "popular-this-week",
   },
   {
     id: 67,
@@ -877,6 +925,7 @@ export const catalogBd = [
       "Long-lasting quality",
     ],
     dimensions: { Height: 70, Width: 50, Depth: 4 },
+    discover: "popular-this-week",
   },
   {
     id: 68,
@@ -889,6 +938,7 @@ export const catalogBd = [
     creationDate: new Date("2024-04-18T12:45:00.000Z"),
     advantages: ["Premium texture", "Sustainable design", "Elegant details"],
     dimensions: { Height: 48, Width: 36, Depth: 3 },
+    discover: "best-sellers",
   },
   {
     id: 69,
@@ -921,6 +971,7 @@ export const catalogBd = [
       "Sustainable manufacturing",
     ],
     dimensions: { Height: 72, Width: 52, Depth: 3 },
+    discover: "best-sellers",
   },
   {
     id: 71,
@@ -945,6 +996,7 @@ export const catalogBd = [
     creationDate: new Date("2024-01-28T13:25:00.000Z"),
     advantages: ["Organic touch", "Elegant balance", "Sustainable elements"],
     dimensions: { Height: 50, Width: 35, Depth: 2 },
+    discover: "best-sellers",
   },
   {
     id: 73,
@@ -957,6 +1009,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-30T15:00:00.000Z"),
     advantages: ["Timeless design", "Soft transitions", "Eco-safe dyes"],
     dimensions: { Height: 68, Width: 40, Depth: 3 },
+    discover: "best-sellers",
   },
   {
     id: 74,
@@ -982,6 +1035,7 @@ export const catalogBd = [
     creationDate: new Date("2024-03-01T12:10:00.000Z"),
     advantages: ["Soft seating", "Modern silhouette", "Eco-friendly fabric"],
     dimensions: { Height: 88, Width: 48, Depth: 52 },
+    discover: "best-sellers",
   },
   {
     id: 76,
@@ -1007,6 +1061,7 @@ export const catalogBd = [
     creationDate: new Date("2024-01-27T16:20:00.000Z"),
     advantages: ["Premium cushioning", "Stable frame", "Sustainable elements"],
     dimensions: { Height: 89, Width: 47, Depth: 50 },
+    discover: "best-sellers",
   },
   {
     id: 78,
@@ -1035,6 +1090,7 @@ export const catalogBd = [
       Width: 50,
       Depth: 56,
     },
+    discover: "new-arrivals",
   },
   {
     id: 80,
@@ -1067,6 +1123,7 @@ export const catalogBd = [
       Width: 52,
       Depth: 57,
     },
+    discover: "best-sellers",
   },
   {
     id: 82,
@@ -1083,6 +1140,7 @@ export const catalogBd = [
       Width: 45,
       Depth: 50,
     },
+    discover: "best-sellers",
   },
   {
     id: 83,
@@ -1180,6 +1238,7 @@ export const catalogBd = [
       Width: 6,
       Depth: 4,
     },
+    discover: "recently-viewed",
   },
   {
     id: 88,

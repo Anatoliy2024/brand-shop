@@ -24,3 +24,27 @@ export const brandOption = [
   { text: "Biggie Smalls", id: "Biggie-Smalls" },
   { text: "Thom Yorke", id: "Thom-Yorke" },
 ]
+
+export const discoverOption = [
+  {
+    text: "New arrivals",
+    link: "/catalog?discover=new-arrivals",
+    id: "new-arrivals",
+  },
+  {
+    text: "Best sellers",
+    link: "/catalog?discover=best-sellers",
+    id: "best-sellers",
+  },
+  {
+    text: "Recently viewed",
+    link: "/catalog?discover=recently-viewed",
+    id: "recently-viewed",
+  },
+  {
+    text: "Popular this week",
+    link: "/catalog?discover=popular-this-week",
+    id: "popular-this-week",
+  },
+  { text: "All products", link: "/catalog", id: "all" },
+]

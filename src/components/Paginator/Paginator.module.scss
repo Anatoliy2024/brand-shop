@@ -1,0 +1,30 @@
+.pagination {
+  font-size: var(--fs-lg);
+  // margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  padding-bottom: 20px;
+  button {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 12px;
+    &:hover {
+      background: var(--color-text-grey);
+      // filter: brightness(1.2);
+    }
+    &:active {
+      background: var(--color-text-grey-two);
+    }
+  }
+
+  .active {
+    background: var(--color-text-black);
+
+    // background: orange;
+    color: white;
+  }
+}

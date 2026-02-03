@@ -16,6 +16,7 @@
 :root {
   --background-purple: #2a254b;
   --background-grey: #f9f9f9;
+  --background-grey-two: #f0f0f0;
 
   --fs-sm: clamp(0.75rem, 1vw, 0.875rem); /* 14px */
 
@@ -36,6 +37,7 @@
   --color-text-grey: #726e8d;
   --color-text-grey-two: #5b5676;
   --color-text-grey-three: #3f3f7d;
+
   /* --color-text-grey-three: #2a254b; */
   --color-text-white: #ffffff;
   --color-text-white-two: rgba(249, 249, 249, 1);

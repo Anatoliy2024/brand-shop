@@ -1,4 +1,3 @@
-import { Collection } from "@/components/Collection/Collection"
 import { CollectionDynamic } from "@/components/Collection/CollectionDynamic"
 import { Different } from "@/components/Different/Different"
 import { Invitation } from "@/components/Invitation/Invitation"
