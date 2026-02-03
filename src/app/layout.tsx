@@ -1,32 +1,24 @@
 import type { Metadata } from "next"
-// import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import localFont from "next/font/local"
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// })
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// })
 
 export const metadata: Metadata = {
   title: "Avion",
   description: "Avion - wonderful brand",
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+  },
 }
 
 const satoshi = localFont({
   src: [
     {
-      path: "../../public/fonts/Satoshi/Satoshi-Regular.woff2",
+      path: "../fonts/Satoshi/Satoshi-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Satoshi/Satoshi-Bold.woff2",
+      path: "../fonts/Satoshi/Satoshi-Bold.woff2",
       weight: "700",
       style: "normal",
     },
@@ -38,12 +30,12 @@ const satoshi = localFont({
 const clashDisplay = localFont({
   src: [
     {
-      path: "../../public/fonts/clash-display/ClashDisplay-Regular.woff2",
+      path: "../fonts/clash-display/ClashDisplay-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/clash-display/ClashDisplay-Bold.woff2",
+      path: "../fonts/clash-display/ClashDisplay-Bold.woff2",
       weight: "700",
       style: "normal",
     },

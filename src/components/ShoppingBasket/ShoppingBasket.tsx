@@ -134,50 +134,120 @@ const ProductItem = ({
 }) => {
   return (
     <div key={product.id} className={style.productItem}>
-      <Link className={style.productItem__info} href={`/product/${product.id}`}>
-        <div className={style.productItem__imageWrapper}>
-          <Image
-            src={product.image}
-            alt={product.title}
-            className={style.productItem__image}
-            // fill
-            width={109}
-            height={134}
-          />
-        </div>
-        <div className={style.productIte__details}>
+      <Link
+        className={style.productItem__imageWrapper}
+        href={`/product/${product.id}`}
+      >
+        {/* <div className={style.productItem__imageWrapper}> */}
+        <Image
+          src={product.image}
+          alt={product.title}
+          className={style.productItem__image}
+          // fill
+          width={109}
+          height={134}
+        />
+        {/* </div> */}
+      </Link>
+      <div className={style.productItem__info}>
+        <div className={style.productItem__details}>
           <h3 className={style.productItem__name}>{product.title}</h3>
           <div className={style.productItem__description}>
             {product.description}
           </div>
           <p className={style.productItem__price}>£{product.price}</p>
         </div>
-      </Link>
-      <div className={style.productItem__stepper}>
-        <button
-          className={style.productItem__button}
-          onClick={() => handleDecrease(product.id, product.qty)}
-          aria-label="Decrease quantity"
-        >
-          -
-        </button>
-        <span className={style.productItem__value}>{product.qty}</span>
-        <button
-          className={style.productItem__button}
-          onClick={() => handleIncrease(product.id, product.qty)}
-          aria-label="Increase quantity"
-        >
-          +
-        </button>
+
+        <div className={style.productItem__stepper}>
+          <button
+            className={style.productItem__button}
+            onClick={() => handleDecrease(product.id, product.qty)}
+            aria-label="Decrease quantity"
+          >
+            -
+          </button>
+          <span className={style.productItem__value}>{product.qty}</span>
+          <button
+            className={style.productItem__button}
+            onClick={() => handleIncrease(product.id, product.qty)}
+            aria-label="Increase quantity"
+          >
+            +
+          </button>
+        </div>
+        <div className={style.productItem__total}>
+          <p className={style.productItem__totalPrice}>£{total}</p>
+          <button
+            aria-label="Remove from cart"
+            onClick={() => removeCart(product.id)}
+            className={`${style.productItem__remove} noSelect`}
+          >
+            X
+          </button>
+        </div>
       </div>
-      <p className={style.productItem__total}>£{total}</p>
-      <button
-        aria-label="Remove from cart"
-        onClick={() => removeCart(product.id)}
-        className={`${style.productItem__remove} noSelect`}
-      >
-        X
-      </button>
     </div>
   )
 }
+// const ProductItem = ({
+//   product,
+//   total,
+//   handleDecrease,
+//   handleIncrease,
+//   removeCart,
+// }: {
+//   product: Product
+//   total: number
+//   handleDecrease: (id: number, qty: number) => void
+//   handleIncrease: (id: number, qty: number) => void
+//   removeCart: (id: number) => void
+// }) => {
+//   return (
+//     <div key={product.id} className={style.productItem}>
+//       <Link className={style.productItem__info} href={`/product/${product.id}`}>
+//         <div className={style.productItem__imageWrapper}>
+//           <Image
+//             src={product.image}
+//             alt={product.title}
+//             className={style.productItem__image}
+//             // fill
+//             width={109}
+//             height={134}
+//           />
+//         </div>
+//         <div className={style.productIte__details}>
+//           <h3 className={style.productItem__name}>{product.title}</h3>
+//           <div className={style.productItem__description}>
+//             {product.description}
+//           </div>
+//           <p className={style.productItem__price}>£{product.price}</p>
+//         </div>
+//       </Link>
+//       <div className={style.productItem__stepper}>
+//         <button
+//           className={style.productItem__button}
+//           onClick={() => handleDecrease(product.id, product.qty)}
+//           aria-label="Decrease quantity"
+//         >
+//           -
+//         </button>
+//         <span className={style.productItem__value}>{product.qty}</span>
+//         <button
+//           className={style.productItem__button}
+//           onClick={() => handleIncrease(product.id, product.qty)}
+//           aria-label="Increase quantity"
+//         >
+//           +
+//         </button>
+//       </div>
+//       <p className={style.productItem__total}>£{total}</p>
+//       <button
+//         aria-label="Remove from cart"
+//         onClick={() => removeCart(product.id)}
+//         className={`${style.productItem__remove} noSelect`}
+//       >
+//         X
+//       </button>
+//     </div>
+//   )
+// }

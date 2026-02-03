@@ -1,7 +1,10 @@
+$widthMobileSort: 400px;
+$widthMobileFilter: 950px;
+
 @mixin list {
   position: absolute;
   top: 100%;
-  // left: 0;
+
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -11,7 +14,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  //   transform: translateY(5px);
+
   transition: 0.2s ease;
   display: flex;
   flex-direction: column;
@@ -29,84 +32,128 @@
     text-align: center;
     padding-bottom: 24px;
   }
-  .CatalogOption__content {
+  &__content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
     .Filters {
-      display: flex;
+      @media (max-width: $widthMobileFilter) {
+        position: relative;
 
-      gap: 50px;
-      .Filters__item {
+        &:hover .Filters__wrapperItems {
+          background: white;
+          padding: 10px;
+          border-radius: 12px;
+          border: 1px solid var(--color-text-black);
+          display: block;
+          position: absolute;
+          z-index: 5;
+          top: 100%;
+          left: -15px;
+        }
+      }
+
+      &__triggerMobile {
+        display: none;
+        @media (max-width: $widthMobileFilter) {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          svg {
+            @include svg;
+          }
+          &:hover svg {
+            transform: rotate(0);
+          }
+        }
+      }
+      &__wrapperItems {
+        display: flex;
+        gap: 50px;
+        @media (max-width: $widthMobileFilter) {
+          display: none;
+        }
+      }
+      &__item {
         position: relative;
         padding: 5px;
         font-family: var(--font-satoshi), sans-serif;
         display: flex;
         align-items: center;
         gap: 10px;
-        .Filters__trigger {
-          // gap: 10px;
-          // display: flex;
-          // align-items: center;
-        }
-        .Filters__triggerActive {
-          color: #ff0000b8;
-          span {
-            padding-left: 5px;
-          }
-        }
-        //   cursor: pointer;
+
         svg {
           @include svg;
-        }
-
-        .Filters__optionsList {
-          @include list;
-
-          left: 0;
-
-          .Filters__option {
-            display: flex;
-            gap: 8px;
-            // padding: 3px;
-            // border-radius: 5px;
-            input {
-              accent-color: var(--color-text-grey-three);
-            }
-            input,
-            label {
-              cursor: pointer;
-              //   color: red;
-              //   padding: 5px;
-              white-space: nowrap;
-            }
-            // &:hover {
-            //   background: var(--color-text-grey);
-            // }
-          }
         }
 
         &:hover .Filters__optionsList {
           opacity: 1;
           visibility: visible;
           pointer-events: auto;
-          // transform: translateY(0);
         }
         &:hover svg {
           transform: rotate(0);
-          // transform: translateY(0);
+        }
+      }
+
+      &__triggerActive {
+        color: #ff0000b8;
+        span {
+          padding-left: 5px;
+        }
+      }
+
+      &__optionsList {
+        @include list;
+
+        left: 0;
+
+        @media (max-width: $widthMobileFilter) {
+          z-index: 10;
+          left: 100%;
+          top: 50%;
+        }
+      }
+
+      &__option {
+        display: flex;
+        gap: 8px;
+
+        input {
+          accent-color: var(--color-text-grey-three);
+        }
+        input,
+        label {
+          cursor: pointer;
+
+          white-space: nowrap;
+        }
+      }
+
+      &__buttonReset {
+        @media (max-width: $widthMobileFilter) {
+          padding-left: 25px;
         }
       }
     }
     .Sort {
       display: flex;
       align-items: center;
-      // position: relative;
+
       font-family: var(--font-satoshi), sans-serif;
-      // padding: 5px;
+
       min-width: 237px;
       gap: 20px;
-      .Sort__wrapper {
+      @media (max-width: $widthMobileSort) {
+        min-width: auto;
+      }
+      &__title {
+        @media (max-width: $widthMobileSort) {
+          display: none;
+        }
+      }
+      &__wrapper {
         display: flex;
         position: relative;
         padding: 5px;
@@ -116,32 +163,40 @@
         svg {
           @include svg;
         }
-        .Sort__optionsList {
-          @include list;
-          // position: absolute;
-          // top: 100%;
-          right: 0;
-          .Sort__options {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            input,
-            label {
-              cursor: pointer;
-              white-space: nowrap;
-            }
-          }
-        }
 
         &:hover .Sort__optionsList {
           opacity: 1;
           visibility: visible;
           pointer-events: auto;
-          // transform: translateY(0);
         }
         &:hover svg {
           transform: rotate(0);
-          // transform: translateY(0);
+        }
+      }
+      &__titleMobile {
+        display: none;
+        @media (max-width: $widthMobileSort) {
+          display: block;
+        }
+      }
+      &__trigger {
+        @media (max-width: $widthMobileSort) {
+          display: none;
+        }
+      }
+      &__optionsList {
+        @include list;
+
+        right: 0;
+      }
+      &__options {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        input,
+        label {
+          cursor: pointer;
+          white-space: nowrap;
         }
       }
     }

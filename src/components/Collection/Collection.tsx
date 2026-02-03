@@ -5,9 +5,9 @@ import style from "./Collection.module.scss"
 import { ButtonUi } from "@/ui/button-ui/ButtonUi"
 import { ItemCollection } from "../ItemCollection/ItemCollection"
 
-import { catalogBd, CatalogBdType } from "@/data/catalogBD"
+import { catalogBd } from "@/data/catalogBD"
 import { shuffleArray } from "@/utils/shuffle"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 export function Collection({ children }: { children?: React.ReactNode }) {
   const [collectionSlice] = useState(() => shuffleArray(catalogBd).slice(0, 4))
 

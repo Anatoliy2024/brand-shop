@@ -27,7 +27,7 @@ export default function AboutUsPage() {
         title="Our service isn’t just personal, it’s actually hyper personally exquisite"
         srcImage={"/img/features-2.png"}
         alt={"features-image"}
-        type="revers"
+        type="reverse"
       >
         <p>
           When we started Avion, the idea was simple. Make high quality

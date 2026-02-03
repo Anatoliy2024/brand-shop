@@ -47,11 +47,11 @@ export function Header({ hiddenCatalog }: { hiddenCatalog?: boolean }) {
   return (
     <div className={style.Header}>
       <div className={style.Header__top}>
-        <div className={style.Header__searchBlock}>
+        {/* <div className={style.Header__searchBlock}>
           <div aria-label="search" className={style.Header__iconWrapper}>
             <SearchIcon />
           </div>
-        </div>
+        </div> */}
 
         <Link href="/" className={style.Header__logo}>
           Avion
