@@ -30,12 +30,12 @@ const satoshi = localFont({
 const clashDisplay = localFont({
   src: [
     {
-      path: "../fonts/Clash-Display/ClashDisplay-Regular.woff2",
+      path: "../fonts/Clash-Displa/ClashDisplay-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../fonts/Clash-Display/ClashDisplay-Bold.woff2",
+      path: "../fonts/Clash-Displa/ClashDisplay-Bold.woff2",
       weight: "700",
       style: "normal",
     },
