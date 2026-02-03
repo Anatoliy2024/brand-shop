@@ -18,11 +18,6 @@ export type CatalogItemBdType = {
 }
 export type CatalogBdType = CatalogItemBdType[]
 
-// { text: "New arrivals", link: "/catalog?discover=new-arrivals" },
-// { text: "Best sellers", link: "/catalog?discover=best-sellers" },
-// { text: "Recently viewed", link: "/catalog?discover=recently-viewed" },
-// { text: "Popular this week", link: "/catalog?discover=popular-this-week" },
-
 export const catalogBd: CatalogBdType = [
   {
     id: 1,
