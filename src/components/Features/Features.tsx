@@ -1,4 +1,5 @@
 "use client"
+import { ButtonUi } from "@/ui/button-ui/ButtonUi"
 import styles from "./Features.module.scss"
 import Image from "next/image"
 
@@ -30,7 +31,8 @@ export function Features({
             </div>
 
             <div className={styles.features__actions}>
-              <button className={styles.features__button}>Get in Touch</button>
+              {/* <button className={styles.features__button}>Get in Touch</button> */}
+              <ButtonUi text={"Get in Touch"} />
             </div>
           </div>
         </div>

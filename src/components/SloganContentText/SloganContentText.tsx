@@ -17,7 +17,7 @@ export function SloganContentText({
     >
       <h2>{title}</h2>
       <div className={style.SloganContent__text}>{text}</div>
-      <ButtonUi className={type} />
+      <ButtonUi text={"View collection"} className={type} />
     </div>
   )
 }

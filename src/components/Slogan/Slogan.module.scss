@@ -1,12 +1,12 @@
 .Slogan {
-  .Slogan__imageWrapper {
+  &__imageWrapper {
     display: none;
     @media (max-width: 500px) {
       display: block;
     }
   }
 
-  .Slogan__contentWrapper {
+  &__contentWrapper {
     padding: 130px 80px;
 
     background-position: center;

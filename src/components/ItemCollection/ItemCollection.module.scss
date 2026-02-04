@@ -16,7 +16,7 @@
     color: white;
   }
 
-  .ItemCollection__imageWrapper {
+  &__imageWrapper {
     padding-bottom: 12px;
 
     img {
@@ -28,7 +28,7 @@
   h4 {
     padding-bottom: 8px;
   }
-  .ItemCollection__price {
+  &__price {
     font-family: var(--font-satoshi), sans-serif;
   }
 }

@@ -87,22 +87,18 @@ export function ShoppingBasket() {
 
         <hr className={style.shoppingBasket__divider} />
 
-        <div className={style.shoppingBasket__summary}>
-          <div className={style.shoppingBasket__summaryPricing}>
-            <div className={style.shoppingBasket__summarySubtotal}>
-              <span className={style.shoppingBasket__summarySubtotalLabel}>
-                Subtotal
-              </span>
-              <span className={style.shoppingBasket__summarySubtotalAmount}>
-                £{subtotal}
-              </span>
+        <div className={style.summary}>
+          <div className={style.summary__pricing}>
+            <div className={style.summary__subtotal}>
+              <span className={style.summary__subtotalLabel}>Subtotal</span>
+              <span className={style.summary__subtotalAmount}>£{subtotal}</span>
             </div>
-            <p className={style.shoppingBasket__summaryNote}>
+            <p className={style.summary__note}>
               Taxes and shipping are calculated at checkout
             </p>
           </div>
           <button
-            className={style.shoppingBasket__checkoutButton}
+            className={style.summary__checkoutButton}
             onClick={handleCheckout}
           >
             <span>Go to checkout</span>

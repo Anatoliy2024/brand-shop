@@ -24,76 +24,9 @@
   }
 
   &__subtext {
-    margin-top: 0.75rem;
+    margin: 0.75rem 0 1rem;
     font-family: var(--font-satoshi);
     font-size: var(--fs-sm);
     color: var(--color-text-grey-two);
   }
-
-  &__button {
-    margin: 2.5rem auto 0;
-    display: inline-flex;
-    padding: 1rem 2rem;
-    font-family: var(--font-satoshi);
-    font-size: var(--fs-md);
-    background: var(--background-grey-two);
-    color: var(--color-text-black);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background: var(--color-text-grey);
-    }
-  }
 }
-
-// .vacancies {
-//   background: var(--background-grey);
-//   padding: clamp(40px, 5vw, 80px) 20px;
-
-//   .container {
-//     max-width: 640px;
-//     margin: 0 auto;
-//     text-align: center;
-
-//     .title {
-//       font-family: var(--font-clashDisplay);
-//       font-size: var(--fs-xl);
-//       font-weight: 400;
-//       color: var(--color-text-black);
-//       line-height: 1.25;
-//     }
-
-//     .text {
-//       margin-top: 1.5rem;
-//       font-family: var(--font-satoshi);
-//       font-size: var(--fs-md);
-//       color: var(--color-text-grey);
-//     }
-
-//     .subtext {
-//       margin-top: 0.75rem;
-//       font-family: var(--font-satoshi);
-//       font-size: var(--fs-sm);
-//       color: var(--color-text-grey-two);
-//     }
-
-//     .button {
-//       margin: 2.5rem auto 0;
-//       display: inline-flex;
-//       padding: 1rem 2rem;
-//       font-family: var(--font-satoshi);
-//       font-size: var(--fs-md);
-//       background: var(--background-grey-two);
-//       color: var(--color-text-black);
-//       border: none;
-//       cursor: pointer;
-//       transition: background-color 0.2s ease;
-
-//       &:hover {
-//         background: var(--color-text-grey);
-//       }
-//     }
-//   }
-// }

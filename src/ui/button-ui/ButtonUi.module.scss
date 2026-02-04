@@ -36,3 +36,16 @@
     background: var(--color-text-grey-two);
   }
 }
+.red {
+  background: rgba(159, 0, 0, 0.422);
+  &:hover {
+    background: rgba(159, 0, 0, 0.633);
+  }
+  &:active {
+    background: rgba(159, 0, 0, 0.797);
+  }
+}
+.grey {
+  background: var(--background-grey-two);
+  // background: rgb(204, 204, 204);
+}

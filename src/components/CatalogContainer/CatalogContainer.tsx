@@ -17,7 +17,7 @@ export function CatalogContainer() {
     brand: searchParams.get("brand")?.split(",") || [],
     price: searchParams.get("price") || null,
 
-    page: Number(searchParams.get("page")) || 1,
+    // page: Number(searchParams.get("page")) || 1,
     discover: searchParams.get("discover") as DiscoverType | null,
   }
 
@@ -118,6 +118,7 @@ export function CatalogContainer() {
     <>
       <CatalogOption
         filters={filters}
+        // page={page}
         onChange={setFilter}
         sort={sort}
         setSort={setSort}

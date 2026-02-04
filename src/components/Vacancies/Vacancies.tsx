@@ -1,3 +1,4 @@
+import { ButtonUi } from "@/ui/button-ui/ButtonUi"
 import styles from "./Vacancies.module.scss"
 
 export function Vacancies() {
@@ -6,12 +7,14 @@ export function Vacancies() {
       <div className={styles.vacancies__container}>
         <h1 className={styles.vacancies__title}>Careers at Avion</h1>
         <p className={styles.vacancies__text}>
-          We don`t have any open positions at the moment.
+          We do not have any open positions at the moment.
         </p>
         <p className={styles.vacancies__subtext}>
-          We`re always happy to hear from talented people.
+          We are always happy to hear from talented people.
         </p>
-        <button className={styles.vacancies__button}>Get in touch</button>
+        <ButtonUi text={"Get in touch"} className="grey" />
+
+        {/* <button className={styles.vacancies__button}>Get in touch</button> */}
       </div>
     </div>
   )

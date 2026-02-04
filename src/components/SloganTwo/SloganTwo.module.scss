@@ -7,7 +7,7 @@
   @media (max-width: 600px) {
     flex-direction: column;
   }
-  .SloganTwo__ImageWrapper {
+  &__ImageWrapper {
     flex: 1;
     img {
       width: 100%;

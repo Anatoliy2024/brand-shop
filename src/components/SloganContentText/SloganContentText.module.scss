@@ -17,7 +17,7 @@
     color: var(--color-text-black-two);
     line-height: 140%;
   }
-  .SloganContent__text {
+  &__text {
     font-size: var(--fs-md);
     flex: 1;
   }

@@ -8,32 +8,33 @@
     font-size: var(--fs-lg-m);
     padding-bottom: clamp(20px, 2vw, 36px);
   }
-  .Different__content {
+  &__content {
     display: flex;
     // justify-content: space-between;
     gap: 20px;
     @media (max-width: 800px) {
       flex-wrap: wrap;
     }
-    .Different__contentItem {
-      padding: clamp(20px, 3vw, 48px);
-      flex: 1 1 auto;
-      // min-height: 244px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background: var(--color-text-white-two);
-      @media (max-width: 800px) {
-        width: 40%;
-      }
-      @media (max-width: 500px) {
-        width: 100%;
-      }
-      .Different__iconWrapper {
-      }
-      .Different__text {
-        font-family: var(--font-satoshi);
-      }
+  }
+  &__contentItem {
+    padding: clamp(20px, 3vw, 48px);
+    flex: 1 1 auto;
+    // min-height: 244px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--color-text-white-two);
+    @media (max-width: 800px) {
+      width: 40%;
     }
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+
+  &__iconWrapper {
+  }
+  &__text {
+    font-family: var(--font-satoshi);
   }
 }

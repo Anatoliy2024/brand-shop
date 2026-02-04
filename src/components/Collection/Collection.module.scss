@@ -8,7 +8,7 @@
     font-size: var(--fs-xl);
   }
 
-  .Collection__list {
+  &__list {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(4, 1fr);

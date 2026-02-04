@@ -9,7 +9,7 @@
   }
 
   &__title {
-    font-family: var(--font-clashDisplay);
+    // font-family: var(--font-clashDisplay);
     font-size: var(--fs-xl);
     font-weight: 400;
     line-height: 1.25;
@@ -24,7 +24,7 @@
   }
 
   &__info {
-    margin-top: 3rem;
+    margin: 3rem 0 1rem;
     display: grid;
     gap: 1.25rem;
   }
@@ -50,25 +50,5 @@
     font-family: var(--font-satoshi);
     font-size: var(--fs-md);
     color: var(--color-text-black);
-  }
-
-  &__button {
-    margin: 3rem auto 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2.25rem;
-    font-family: var(--font-satoshi);
-    font-size: var(--fs-md);
-    background: var(--background-purple);
-    color: var(--color-text-white);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.15s ease;
-
-    &:hover {
-      background: var(--color-text-black-two);
-      transform: translateY(-1px);
-    }
   }
 }

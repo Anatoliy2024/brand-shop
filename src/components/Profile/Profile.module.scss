@@ -14,7 +14,7 @@
 
   &__title {
     text-align: center;
-    font-family: var(--font-clashDisplay);
+    // font-family: var(--font-clashDisplay);
     font-size: var(--fs-xl);
     font-weight: 400;
     color: var(--color-text-black);
@@ -66,34 +66,5 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-  }
-
-  &__button {
-    padding: 0.9rem 2rem;
-    font-family: var(--font-satoshi);
-    font-size: var(--fs-md);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.15s ease;
-
-    &--primary {
-      background: #2f2b5a;
-      color: var(--color-text-white);
-
-      &:hover {
-        background: var(--color-text-black);
-        transform: translateY(-1px);
-      }
-    }
-
-    &--secondary {
-      background: var(--background-grey-two);
-      color: var(--color-text-black);
-
-      &:hover {
-        background: var(--color-text-grey);
-        color: var(--color-text-white);
-      }
-    }
   }
 }

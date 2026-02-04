@@ -1,3 +1,4 @@
+import { ButtonUi } from "@/ui/button-ui/ButtonUi"
 import styles from "./ContactUs.module.scss"
 
 export default function ContactUs() {
@@ -5,23 +6,19 @@ export default function ContactUs() {
     <div className={styles.contact}>
       <div className={styles.contact__container}>
         <h1 className={styles.contact__title}>Contact us</h1>
-
         <p className={styles.contact__text}>
-          Have a question, idea or just want to say hello - we’d love to hear
+          Have a question, idea or just want to say hello - we`d love to hear
           from you.
         </p>
-
         <div className={styles.contact__info}>
           <div className={styles.contact__item}>
             <span className={styles.contact__label}>Email</span>
             <span className={styles.contact__value}>hello@avion.co.uk</span>
           </div>
-
           <div className={styles.contact__item}>
             <span className={styles.contact__label}>Phone</span>
             <span className={styles.contact__value}>+44 20 1234 5678</span>
           </div>
-
           <div className={styles.contact__item}>
             <span className={styles.contact__label}>Studio</span>
             <span className={styles.contact__value}>
@@ -29,8 +26,9 @@ export default function ContactUs() {
             </span>
           </div>
         </div>
+        <ButtonUi text={"Get in Touch"} className="grey" />
 
-        <button className={styles.contact__button}>Get in touch</button>
+        {/* <button className={styles.contact__button}>Get in touch</button> */}
       </div>
     </div>
   )

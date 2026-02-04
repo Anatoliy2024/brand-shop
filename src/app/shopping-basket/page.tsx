@@ -5,7 +5,7 @@ import { ShoppingBasketDynamic } from "@/components/ShoppingBasket/ShoppingBaske
 
 import { CollectionDynamic } from "@/components/Collection/CollectionDynamic"
 
-export default function Catalog() {
+export default function ShoppingBasketPage() {
   return (
     <InnerApp>
       <Suspense fallback={null}>

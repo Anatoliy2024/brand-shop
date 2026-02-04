@@ -13,6 +13,7 @@ type OptionType = { text: string; id: string; link?: string }[]
 
 export function CatalogOption({
   filters,
+  // page,
   onChange,
   resetFilter,
   sort,
@@ -23,13 +24,33 @@ export function CatalogOption({
     category: string[]
     price: string | null
     discover: DiscoverType | null
-    page: number
+    // page: number
   }
+  // page:string
   onChange: (type: string, value: string) => void
   resetFilter: () => void
   sort: string
   setSort: (value: string) => void
 }) {
+  // let count = 0
+
+  // Object.values(filters).forEach((value) => {
+  //   if (typeof value === "string") {
+  //     count += 1
+  //   } else if (Array.isArray(value)) {
+  //     count += value.length
+  //   }
+  // })
+
+  // if (selected) {
+  //   if (Array.isArray(selected)) {
+  //     if (selected.length > 0) {
+  //       count = selected.length
+  //     }
+  //   } else {
+  //     count = 1
+  //   }
+  // }
   return (
     <div className={style.CatalogOption}>
       <div className={style.CatalogOption__content}>

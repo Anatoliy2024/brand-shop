@@ -1,6 +1,6 @@
 .product {
   //   min-height: 100vh;
-  background: #f9f9f9;
+  background: var(--background-grey);
 
   &__container {
     max-width: 1200px;
@@ -46,9 +46,9 @@
   }
 
   &__title {
-    font-family: "Clash Display", sans-serif;
-    font-size: 32px;
-    color: #2a254b;
+    // font-family: "Clash Display", sans-serif;
+    font-size: var(--fs-xl);
+    color: var(--background-purple);
 
     @media (min-width: 1024px) {
       font-size: 40px;
@@ -56,12 +56,12 @@
   }
 
   &__price {
-    font-family: "Satoshi", sans-serif;
-    font-size: 20px;
-    color: #2a254b;
+    font-family: var(--font-satoshi), sans-serif;
+    font-size: var(--fs-lg);
+    color: var(--background-purple);
 
     @media (min-width: 1024px) {
-      font-size: 24px;
+      font-size: var(--fs-lg-m);
     }
   }
 
@@ -78,15 +78,16 @@
   }
 
   &__sectionTitle {
-    font-family: "Clash Display", sans-serif;
-    font-size: 16px;
-    color: #2a254b;
+    // font-family: "Clash Display", sans-serif;
+    font-size: var(--fs-sm);
+    color: var(--background-purple);
   }
 
   &__text {
-    font-family: "Satoshi", sans-serif;
+    font-family: var(--font-satoshi), sans-serif;
+
     line-height: 1.6;
-    color: #2a254b;
+    color: var(--background-purple);
   }
 
   &__dimensions {
@@ -103,15 +104,15 @@
   }
 
   &__dimLabel {
-    font-family: "Clash Display", sans-serif;
-    font-size: 14px;
+    font-size: var(--fs-sm);
     color: #2a254b;
   }
 
   &__dimValue {
-    font-family: "Satoshi", sans-serif;
-    font-size: 16px;
-    color: #2a254b;
+    font-family: var(--font-satoshi), sans-serif;
+
+    font-size: var(--fs-sm);
+    color: var(--background-purple);
   }
 
   &__dimDivider {
@@ -124,13 +125,14 @@
     display: flex;
     justify-content: space-between;
     width: 130px;
-    background: white;
+    background: var(--color-text-white);
     padding: 12px 16px;
   }
 
   &__quantityBtn {
-    font-family: "Satoshi", sans-serif;
-    font-size: 18px;
+    font-family: var(--font-satoshi), sans-serif;
+
+    font-size: var(--fs-md);
     cursor: pointer;
     transition: 0.2s;
 
@@ -149,9 +151,10 @@
   }
 
   &__quantityValue {
-    font-family: "Satoshi", sans-serif;
-    font-size: 16px;
-    color: #2a254b;
+    font-family: var(--font-satoshi), sans-serif;
+
+    font-size: var(--fs-sm);
+    color: var(--background-purple);
   }
 
   &__buttons {
@@ -165,26 +168,34 @@
   }
 
   &__addBtn {
-    background: #2a254b;
+    background: var(--background-purple);
     color: white;
     padding: 16px 32px;
-    font-family: "Satoshi", sans-serif;
+    font-family: var(--font-satoshi), sans-serif;
+
     transition: 0.2s;
 
     &:hover {
-      background: #3d3563;
+      background: var(--color-text-grey-three);
+    }
+    &:active {
+      background: var(--color-text-grey-two);
     }
   }
 
   &__saveBtn {
     background: white;
-    color: #2a254b;
+    color: var(--background-purple);
     padding: 16px 32px;
-    font-family: "Satoshi", sans-serif;
+    font-family: var(--font-satoshi), sans-serif;
+
     transition: 0.2s;
 
     &:hover {
       background: #f1f1f1;
+    }
+    &:active {
+      background: #9a9a9a;
     }
   }
 }

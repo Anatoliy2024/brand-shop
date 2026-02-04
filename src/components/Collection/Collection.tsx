@@ -25,7 +25,7 @@ export function Collection({ children }: { children?: React.ReactNode }) {
           />
         ))}
       </div>
-      <ButtonUi className="Collection" />
+      <ButtonUi text={"View collection"} className="Collection" />
     </div>
   )
 }
